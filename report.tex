@@ -2,17 +2,102 @@
 
 \usepackage{graphicx,color}
 \usepackage{amssymb, amsmath, array}
+\usepackage{cite}
+\usepackage[T1]{fontenc}
 
-
+\usepackage{listings}
+\usepackage{color}
 
 \begin{document}
 
 \input{cover}
 
-\end{document}
+\tableofcontents
+\newpage
 
-\begin{document}
+\chapter{Introduction}
+\section{History}
+%First present the work at Dedis Cothority and Cosi
+Distributed cryptography spreads the operation of a cryptosystem among a group
+of servers in a fault-tolerant way~\cite{definition}.\\
+The DEDIS lab at EPFL created the Cothority project, which implements decentralized
+and distributed cryptographic protocols.\\
 
-Hello world!
+TODO:presentation of the report!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+%Myself
+\section{Aims and Goals}
+The goal of this semester project is to furnish a web-interface to the Cothority
+project.\\
+The aims stated at a summer meeting with Mr.Linus Gasser are to create an
+interface with status' conodes, be able to send a file for a collective signature
+and to verify a signature.\\
+
+
+\chapter{Analysis}
+The first part of the semester project was to acquire knowledge in Javascript and
+HTML and become familiar with the JQuery library. For delivering a skeleton of
+the website before the beginning of the semester.\\
+Next thing to settle was the communication between the website and a conode.
+The Javascript Web APIs contain all the necessary to handle this problem.
+The object Websocket~\cite{websocketPage} offers all the tools to create a
+communication between a browser and a server.\\
+The Cothority's approach for serializing structured data is a Google's Protobuf-like.
+As said on the website of Google's Protobuf:''Protocol buffers are a flexible,
+efficient, automated mechanism for serializing structured data \\- think XML, but
+smaller, faster, and simpler.''~\cite{protobufDefi}.\\
+Taking this into account and knowing that Google's Protobuf doesn't support generated
+code in Javascript, the choice was made on the library protobuf.js~\cite{protobufjs}.
+It is a pure Javascript implementation of Google's Protobuf. It uses the same format
+of \\.proto file.
+
+\begin{lstlisting}[caption={example of \\.proto file}]
+ message Foo{
+            required bytes a = 1;
+            required bytes b = 2;
+        }
+\end{lstlisting}
+
+%talk about the implementation of the Status Part
+\section{Status part}
+The Javascript Web APIs contain all the necessary to handle the communication
+part. The object Websocket~\cite{websocketPage} offers all the tools to create a
+communication between a browser and a server and send/receive data. All the elements send to conodes are \\.proto files.\\
+First it is necessary to establish the connection. A connection is established
+with each conode.\\
+An empty \\.proto file is send in a Blob object containing the \\.proto file in bytes.\\
+
+\begin{lstlisting}[caption={empty \\.proto file}]
+  message Request {
+  }
+\end{lstlisting}
+
+The request being sent the webpage waits for a response. The response will be the
+status of the concerning conode. It is received as a \\.proto file.
+
+\begin{lstlisting}[caption={response \\.proto file}]
+  message ServerIdentity{
+    				required bytes public = 1;
+    				required bytes id = 2;
+    				required string address = 3;
+    				required string description = 4;
+				}
+
+  message Response {
+    				map<string, Status> system = 1;
+    				optional ServerIdentity server = 2;
+
+				    message Status {
+        				map<string, string> field = 1;
+    				}
+				}
+\end{lstlisting}[caption{response \\.proto file}]
+
+%talk about the problem with map in protofile and after runGenerator
+
+% Google Chrome with async
+
+\bibliography{report}{}
+\bibliographystyle{ieeetr}
 
 \end{document}
