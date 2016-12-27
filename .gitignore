@@ -1,3 +1,4 @@
 .latex.json
 .latex/
 report.synctex.gz
+report.toc
