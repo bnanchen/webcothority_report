@@ -2,3 +2,6 @@
 .latex/
 report.synctex.gz
 report.toc
+report.bbl
+report.blg
+report.dvi
