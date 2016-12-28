@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.12.26)  27 DEC 2016 11:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.12.26)  28 DEC 2016 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**report
+**report.tex
 (./report.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
@@ -140,23 +140,56 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
-) (./report.aux)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count100
+\lst@gtempboxa=\box28
+\lst@token=\toks22
+\lst@length=\count101
+\lst@currlwidth=\dimen116
+\lst@column=\count102
+\lst@pos=\count103
+\lst@lostspace=\dimen117
+\lst@width=\dimen118
+\lst@newlines=\count104
+\lst@lineno=\count105
+\lst@maxwidth=\dimen119
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count106
+\lst@skipnumbers=\count107
+\lst@framebox=\box29
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-
-(./cover.tex
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+\c@lstlisting=\count108
+ (./cover.tex
 File: logo_epfl_coul.eps Graphic file (type eps)
  <logo_epfl_coul.eps>
 LaTeX Font Info:    Try loading font information for U+msa on input line 78.
@@ -177,46 +210,255 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write3
 \openout3 = `report.toc'.
 
- [3]
+ [3] [4
 
-LaTeX Warning: Citation `definition' on page 4 undefined on input line 19.
+]
+Chapter 1.
 
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
+Underfull \hbox (badness 10000) in paragraph at lines 21--25
 
-Overfull \hbox (0.13094pt too wide) in paragraph at lines 21--23
-[]\OT1/cmr/m/n/10.95 Distributed cryp-tog-ra-phy spreads the op-er-a-tion of a 
-cryp-tosys-tem among
  []
 
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ò in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ô in font cmr10!
-[4] (./report.bbl
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
+Underfull \hbox (badness 10000) in paragraph at lines 30--35
 
-) [5
+ []
 
-] (./report.aux)
+[5] [6
 
-LaTeX Warning: There were undefined references.
+]
+Chapter 2.
 
- ) 
+Underfull \hbox (badness 10000) in paragraph at lines 38--45
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--73
+
+ []
+
+[7]
+Overfull \hbox (18.90189pt too wide) in paragraph at lines 84--85
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (31.96747pt too wide) in paragraph at lines 86--87
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (58.09863pt too wide) in paragraph at lines 87--88
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (51.56584pt too wide) in paragraph at lines 91--92
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (77.697pt too wide) in paragraph at lines 92--94
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (97.29538pt too wide) in paragraph at lines 95--96
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--115
+
+ []
+
+[8]
+Overfull \hbox (12.3691pt too wide) in paragraph at lines 122--123
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (31.96747pt too wide) in paragraph at lines 124--125
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (156.0905pt too wide) in paragraph at lines 130--131
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (273.68074pt too wide) in paragraph at lines 131--132
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][] 
+ []
+
+
+Overfull \hbox (58.09863pt too wide) in paragraph at lines 132--133
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.142 O
+       ther libraries (jQuery) begun implementing promises to help developer...
+
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--146
+
+ []
+
+[9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 149.
+
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 149.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.157 A
+        callback function needs to be passed at the Promise's constructor. T...
+
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--162
+
+ []
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.164 
+      
+? 
+(./report.bbl [10]
+! Undefined control sequence.
+l.9   \url
+          {https://developer.mozilla.org/en-US/docs/Web/API/WebSocket}.
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--11
+[]\T1/cmr/m/n/10.95 ``Websocket ob-ject.'' https://developer.mozilla.org/en-
+ []
+
+! Undefined control sequence.
+l.14   \url
+           {https://developers.google.com/protocol-buffers/docs/overview}.
+? 
+
+Underfull \hbox (badness 2142) in paragraph at lines 13--16
+[]\T1/cmr/m/n/10.95 ``Protocol buffers guide-line.'' https://developers.google.
+com/protocol-
+ []
+
+! Undefined control sequence.
+l.18 ``protobuf.js.'' \url
+                          {https://github.com/dcodeIO/protobuf.js}.
+? 
+! Undefined control sequence.
+l.23   \url
+           {https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/O...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23 ...g/fr/docs/Web/JavaScript/Reference/Objets_
+                                                  globaux/Promise}.
+? 
+! Extra }, or forgotten $.
+l.23 ...vaScript/Reference/Objets_globaux/Promise}
+                                                  .
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.25 
+     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.25 
+     
+? 
+
+Overfull \hbox (195.4531pt too wide) in paragraph at lines 22--25
+[]\T1/cmr/m/n/10.95 ``Promise.'' https://developer.mozilla.org/fr/docs/Web/Java
+Script/Reference/Objets$[]\OML/cmm/m/it/10.95 lobaux=Promise: Accessed \OT1/cmr
+/m/n/10.95 :
+ []
+
+! Undefined control sequence.
+l.28   \url
+           {http://exploringjs.com/es6/ch_promises.html}.
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.28   \url{http://exploringjs.com/es6/ch_
+                                          promises.html}.
+? 
+! Extra }, or forgotten $.
+l.28 ...tp://exploringjs.com/es6/ch_promises.html}
+                                                  .
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.30 
+     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.30 
+     
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--30
+[]\T1/cmr/m/n/10.95 ``25. promises for asyn-chronous pro-gram-ming.''
+ []
+
+) [11
+
+] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 1803 strings out of 493015
- 21954 string characters out of 6133376
- 74774 words of memory out of 5000000
- 5342 multiletter control sequences out of 15000+600000
- 10757 words of font info for 40 fonts, out of 8000000 for 9000
+ 3231 strings out of 493015
+ 41557 string characters out of 6133376
+ 112684 words of memory out of 5000000
+ 6743 multiletter control sequences out of 15000+600000
+ 17534 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,15n,26p,295b,314s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,15n,32p,219b,1458s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.dvi (5 pages, 5108 bytes).
+Output written on report.dvi (11 pages, 18636 bytes).

@@ -7,6 +7,7 @@
 
 \usepackage{listings}
 \usepackage{color}
+\usepackage{dirtytalk}
 
 \begin{document}
 
@@ -35,23 +36,27 @@ and to verify a signature.\\
 
 
 \chapter{Analysis}
-The first part of the semester project was to acquire knowledge in Javascript and
+The first part of the semester project was to acquire knowledge in JavaScript and
 HTML and become familiar with the JQuery library. For delivering a skeleton of
 the website before the beginning of the semester.\\
 Next thing to settle was the communication between the website and a conode.
-The Javascript Web APIs contain all the necessary to handle this problem.
+The JavaScript Web APIs contain all the necessary to handle this problem.
 The object Websocket~\cite{websocketPage} offers all the tools to create a
 communication between a browser and a server.\\
-The Cothority's approach for serializing structured data is a Google's Protobuf-like.
-As said on the website of Google's Protobuf:''Protocol buffers are a flexible,
-efficient, automated mechanism for serializing structured data \\- think XML, but
-smaller, faster, and simpler.''~\cite{protobufDefi}.\\
-Taking this into account and knowing that Google's Protobuf doesn't support generated
-code in Javascript, the choice was made on the library protobuf.js~\cite{protobufjs}.
-It is a pure Javascript implementation of Google's Protobuf. It uses the same format
-of \\.proto file.
 
-\begin{lstlisting}[caption={example of \\.proto file}]
+TODO:presentation of the .proto files!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+The Cothority's approach for serializing structured data is a Google's Protobuf-like.
+As said on the website of Google's Protobuf:\say{Protocol buffers are a flexible,
+efficient, automated mechanism for serializing structured data - think XML, but
+smaller, faster, and simpler.}~\cite{protobufDefi}.\\
+Taking this into account and knowing that Google's Protobuf doesn't support generated
+code in JavaScript, the choice was made on the library protobuf.js~\cite{protobufjs}.
+It is a pure JavaScript implementation of Google's Protobuf. It uses the same format
+of .proto file.
+
+\begin{lstlisting}[caption={example of .proto file}, captionpos=b]
  message Foo{
             required bytes a = 1;
             required bytes b = 2;
@@ -60,22 +65,22 @@ of \\.proto file.
 
 %talk about the implementation of the Status Part
 \section{Status part}
-The Javascript Web APIs contain all the necessary to handle the communication
+The JavaScript Web APIs contain all the necessary to handle the communication
 part. The object Websocket~\cite{websocketPage} offers all the tools to create a
-communication between a browser and a server and send/receive data. All the elements send to conodes are \\.proto files.\\
+communication between a browser and a server and send/receive data. All the elements send to conodes are .proto files.\\
 First it is necessary to establish the connection. A connection is established
 with each conode.\\
-An empty \\.proto file is send in a Blob object containing the \\.proto file in bytes.\\
+An empty .proto file is send in a Blob object containing the .proto file in bytes.\\
 
-\begin{lstlisting}[caption={empty \\.proto file}]
+\begin{lstlisting}[caption={empty .proto file}, captionpos=b]
   message Request {
   }
 \end{lstlisting}
 
 The request being sent the webpage waits for a response. The response will be the
-status of the concerning conode. It is received as a \\.proto file.
+status of the concerning conode. It is received as a .proto file.
 
-\begin{lstlisting}[caption={response \\.proto file}]
+\begin{lstlisting}[caption={response .proto file}, captionpos=b]
   message ServerIdentity{
     				required bytes public = 1;
     				required bytes id = 2;
@@ -91,11 +96,140 @@ status of the concerning conode. It is received as a \\.proto file.
         				map<string, string> field = 1;
     				}
 				}
-\end{lstlisting}[caption{response \\.proto file}]
+\end{lstlisting}
+
+The response is is a map with field corresponding to another message format, which
+is a map of a string with a string. Each key corresponding to an element of the conode's
+status (port number, hostname, number of bytes received and sent,\ldots) and each field
+to its value.\\
+%Mettre une subsection?????????????
+\subsection{Promise API}
+That being said, the response message is triggered by our opening socket message. Therefore the
+response message will be asynchronous.\\
+To tackle the asynchronous problem, the introduction of the Promise object in JavaScript must be
+made. First it is important to know that JavaScript is single threaded. It means
+that if a code snippet is waiting on data, the thread can't be waiting on it and doesn't execute
+the remaining part of the code. In that case JavaScript program would be very slow.
+So through the history of JavaScript many tools were created to handle asynchronous programs.
+Like callback functions that was widely used, but widely disliked too. It even has a nickname:\say{Callback Hell}.\\
+
+\begin{lstlisting}[caption={Example of Callback Hell with its typical pyramid shape}, captionpos=b]
+  fs.readdir(source, function (err, files) {
+  if (err) {
+    console.log('Error finding files: ' + err)
+  } else {
+    files.forEach(function (filename, fileIndex) {
+      console.log(filename)
+      gm(source + filename).size(function (err, values) {
+        if (err) {
+          console.log('Error identifying file size: ' + err)
+        } else {
+          console.log(filename + ' : ' + values)
+          aspect = (values.width / values.height)
+          widths.forEach(function (width, widthIndex) {
+            height = Math.round(width / aspect)
+            console.log('resizing ' + filename + 'to ' + height + 'x' + height)
+            this.resize(width, height).write(dest + 'w' + width + '_' + filename, function(err) {
+              if (err) console.log('Error writing file: ' + err)
+            })
+          }.bind(this))
+        }
+      })
+    })
+  }
+})
+\end{lstlisting}
+\leavevmode \\
+Other libraries (jQuery) begun implementing promises to help developers overcome the \say{Callback Hell}.
+This eventually leads ECMAScript 6 to adopt The Promise API~\cite{promise} natively in JavaScript~\cite{ecmaPromise}.
+The object Promise allows to retrieve a value in the \say{future}.
+\\
+\begin{lstlisting}[caption={Structure of a Promise}, captionpos=b]
+  var promise = new Promise(function(resolve, reject) {
+    // asynchronous snippet code
+    if (/*everything goes well*/) {
+      resolve(/*result of async element*/);
+    } else {
+      reject(/*result of async part*/);
+    }
+  });
+\end{lstlisting}
+\leavevmode \\
+A callback function needs to be passed at the Promise's constructor. This function
+will have two parameters. The resolve function will be called if everything worked in
+the asynchronous part, otherwise the reject function will be called.\\
+In the case of this semester project, the resolve function will return the response
+.proto file containing all the status data from the conode.\\
+
+\leavevmode \\
+
+\subsection{Generator}
+To handle the Promise returned the project will use another feature of ECMAScript 6 called a Generator.
+It's a new kind of function. It can be paused in the middle and resumed later. Of course,
+other parts of the code are running during the pause.\\
+
+\begin{lstlisting}[caption={Structure of a generator function}, captionpos=b]
+  function* foo() {
+    var x = yield 1;
+  }
+  \end{lstlisting}
+\leavevmode \\
+The \say{*} marks the function as a generator one. The other different element of
+the code snippet is the keyword:\say{yield}. \say{yield \underline{\hspace{1cm}} is called a \say{yield expression} (and not a statement) because when we restart the generator, we will send a value back in, and whatever we send in will be the computed result of that yield \underline{\hspace{3cm}} expression.}
+~\cite{yieldExpression}. The function will stop when it encounters the \say{yield} keyword.
+Whenever (if ever) the generator is restarted, the \say{yield 1} expression will send \say{1} back.
+The part following the \say{yield} keyword is the expression that will be returned.\\
+
+ \begin{lstlisting}[caption={Restart of a generator function}, captionpos=b]
+   var a = foo();
+   a.next();
+ \end{lstlisting}
+ \leavevmode \\
+The call to the \say{next()} method will execute the generator (from the last \say{yield}) to the next encounter of a \say{keyword} (if there is any).\\
+Returning to the project's code, a generator function is used with the function returning a Promise object.\\
+
+\begin{lstlisting}[caption={Extract from the project's code}, captionpos=b]
+  function* generator() {
+        // some code
+        var message = yield websocket_status(7003);
+        listNodes.push(nodeCreation(message));
+        // some code
+    });
+}
+\end{lstlisting}
+\leavevmode \\
+The function \say{websocket\_status()} returns a Promise object. The generator function
+stops when reaching \say{websocket\_status()}. \say{The main strength of generators is that they provide a single-threaded, synchronous-looking code style, while allowing you to hide the asynchronicity away as an implementation detail.}~\cite{runGenerator}.
+The idea is to \say{yield} out promises and let them restart the generator function when
+they are fulfilled. To do so we need to create a new function that will control the generator function's iterator.\\
+\begin{lstlisting}[caption={~\cite{runGenerator}}, captionpos=b]
+  function runGenerator(g) {
+    let it = g();
+    (function iterate(message) {
+        let ret = it.next(message);
+
+        if (!ret.done) {
+            ret.value.then(iterate);
+        }
+    })();
+    }
+\end{lstlisting}
+\leavevmode \\
+This function take a generator function as parameter
+
+% Google Chrome with async
+% each 3 seconds
+
+% Not final part if recursive method done [BEGIN]
+Then it only remains to do it for each node.
+% Not final part if recursive method done [END]
+
+
+
+
 
 %talk about the problem with map in protofile and after runGenerator
 
-% Google Chrome with async
 
 \bibliography{report}{}
 \bibliographystyle{ieeetr}
