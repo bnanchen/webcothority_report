@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=latex 2016.12.26)  28 DEC 2016 12:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  29 DEC 2016 09:38
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **report.tex
 (./report.tex
@@ -40,10 +41,18 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
 )
-Package graphics Info: Driver file: dvips.def on input line 96.
+Package graphics Info: Driver file: pdftex.def on input line 96.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/dvips.def
-File: dvips.def 2015/12/30 v3.0k Driver-dependent file (DPC,SPQR)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count88
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
@@ -54,11 +63,8 @@ Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 144.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/dvipsnam.def
-File: dvipsnam.def 2015/12/30 v3.0k Driver-dependent file (DPC,SPQR)
-))
+Package color Info: Driver file: pdftex.def on input line 144.
+)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
@@ -90,13 +96,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count88
+\inf@bad=\count89
 LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count89
-\leftroot@=\count90
+\uproot@=\count90
+\leftroot@=\count91
 LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count91
-\DOTSCASE@=\count92
+\classnum@=\count92
+\DOTSCASE@=\count93
 LaTeX Info: Redefining \ldots on input line 394.
 LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
@@ -105,15 +111,15 @@ LaTeX Info: Redefining \cdots on input line 518.
 \big@size=\dimen107
 LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
-\macc@depth=\count93
-\c@MaxMatrixCols=\count94
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
 \dotsspace@=\muskip10
-\c@parentequation=\count95
-\dspbrk@lvl=\count96
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
 \tag@help=\toks17
-\row@=\count97
-\column@=\count98
-\maxfields@=\count99
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
 \andhelp@=\toks18
 \eqnshift@=\dimen108
 \alignsep@=\dimen109
@@ -149,23 +155,23 @@ File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count100
+\lst@mode=\count101
 \lst@gtempboxa=\box28
 \lst@token=\toks22
-\lst@length=\count101
+\lst@length=\count102
 \lst@currlwidth=\dimen116
-\lst@column=\count102
-\lst@pos=\count103
+\lst@column=\count103
+\lst@pos=\count104
 \lst@lostspace=\dimen117
 \lst@width=\dimen118
-\lst@newlines=\count104
-\lst@lineno=\count105
+\lst@newlines=\count105
+\lst@lineno=\count106
 \lst@maxwidth=\dimen119
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count106
-\lst@skipnumbers=\count107
+\c@lstnumber=\count107
+\lst@skipnumbers=\count108
 \lst@framebox=\box29
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
@@ -173,25 +179,111 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(./report.aux)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/dirtytalk/dirtytalk.sty
+Package: dirtytalk 2010/11/21 A package making "quoting" easier
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@dirtytalk@qdepth=\count109
+) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-\c@lstlisting=\count108
- (./cover.tex
-File: logo_epfl_coul.eps Graphic file (type eps)
- <logo_epfl_coul.eps>
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count110
+\scratchdimen=\dimen120
+\scratchbox=\box30
+\nofMPsegments=\count111
+\nofMParguments=\count112
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count113
+\MPscratchDim=\dimen121
+\MPnumerator=\count114
+\makeMPintoPDFobject=\count115
+\everyMPtoPDFconversion=\toks24
+) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count116
+
+(./cover.tex
+Package epstopdf Info: Source file: <logo_epfl_coul.eps>
+(epstopdf)                    date: 2005-06-20 18:59:00
+(epstopdf)                    size: 104278 bytes
+(epstopdf)             Output file: <logo_epfl_coul-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-04 10:49:32
+(epstopdf)                    size: 19393 bytes
+(epstopdf)             Command: <repstopdf --outfile=logo_epfl_coul-eps-convert
+ed-to.pdf logo_epfl_coul.eps>
+(epstopdf)             \includegraphics on input line 66.
+Package epstopdf Info: Output file is already uptodate.
+
+<logo_epfl_coul-eps-converted-to.pdf, id=1, 353.32pt x 170.6375pt>
+File: logo_epfl_coul-eps-converted-to.pdf Graphic file (type pdf)
+
+<use logo_epfl_coul-eps-converted-to.pdf>
+Package pdftex.def Info: logo_epfl_coul-eps-converted-to.pdf used on input line
+ 66.
+(pdftex.def)             Requested size: 113.81102pt x 54.96442pt.
 LaTeX Font Info:    Try loading font information for U+msa on input line 78.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -203,262 +295,179 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 78.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )) [1
 
-] [2
-
-]
-(./report.toc)
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo_
+epfl_coul-eps-converted-to.pdf>] (./report.toc)
 \tf@toc=\write3
 \openout3 = `report.toc'.
 
- [3] [4
+ [2
 
 ]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--25
+Underfull \hbox (badness 10000) in paragraph at lines 24--28
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--35
+Underfull \hbox (badness 10000) in paragraph at lines 33--38
 
  []
 
-[5] [6
+[3
+
+] [4
 
 ]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--45
+Underfull \hbox (badness 10000) in paragraph at lines 41--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--73
+Underfull \hbox (badness 10000) in paragraph at lines 70--76
 
  []
 
-[7]
-Overfull \hbox (18.90189pt too wide) in paragraph at lines 84--85
+[5]
+Overfull \hbox (18.90189pt too wide) in paragraph at lines 87--88
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (31.96747pt too wide) in paragraph at lines 86--87
+Overfull \hbox (31.96747pt too wide) in paragraph at lines 89--90
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (58.09863pt too wide) in paragraph at lines 87--88
+Overfull \hbox (58.09863pt too wide) in paragraph at lines 90--91
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (51.56584pt too wide) in paragraph at lines 91--92
+Overfull \hbox (51.56584pt too wide) in paragraph at lines 94--95
 [][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (77.697pt too wide) in paragraph at lines 92--94
+Overfull \hbox (77.697pt too wide) in paragraph at lines 95--97
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (97.29538pt too wide) in paragraph at lines 95--96
+Overfull \hbox (97.29538pt too wide) in paragraph at lines 98--99
 [][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--105
+Underfull \hbox (badness 10000) in paragraph at lines 103--108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--115
+Underfull \hbox (badness 10000) in paragraph at lines 109--117
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--115
-
- []
-
-[8]
-Overfull \hbox (12.3691pt too wide) in paragraph at lines 122--123
+[6]
+Overfull \hbox (12.3691pt too wide) in paragraph at lines 125--126
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (31.96747pt too wide) in paragraph at lines 124--125
+Overfull \hbox (31.96747pt too wide) in paragraph at lines 127--128
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (156.0905pt too wide) in paragraph at lines 130--131
+Overfull \hbox (156.0905pt too wide) in paragraph at lines 133--134
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (273.68074pt too wide) in paragraph at lines 131--132
+Overfull \hbox (273.68074pt too wide) in paragraph at lines 134--135
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][] 
  []
 
 
-Overfull \hbox (58.09863pt too wide) in paragraph at lines 132--133
+Overfull \hbox (58.09863pt too wide) in paragraph at lines 135--136
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.142 O
-       ther libraries (jQuery) begun implementing promises to help developer...
-
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--146
+Underfull \hbox (badness 10000) in paragraph at lines 144--149
 
  []
 
-[9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 149.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 152.
 
- (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 149.
-
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.157 A
-        callback function needs to be passed at the Promise's constructor. T...
-
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 157--162
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 152.
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 159--165
 
  []
 
 
-! LaTeX Error: There's no line here to end.
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.164 
-      
-? 
-(./report.bbl [10]
-! Undefined control sequence.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--172
+
+ []
+
+
+LaTeX Warning: Citation `yieldExpression' on page 8 undefined on input line 181
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--184
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--192
+
+ []
+
+[8]
+
+LaTeX Warning: Citation `runGenerator' on page 9 undefined on input line 204.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--207
+
+ []
+
+
+LaTeX Warning: Citation `runGenerator' on page 9 undefined on input line 218.
+
+(./report.bbl [9] [10
+
+]
+./report.bbl:9: Undefined control sequence.
 l.9   \url
           {https://developer.mozilla.org/en-US/docs/Web/API/WebSocket}.
 ? 
+./report.bbl:9: Emergency stop.
+l.9   \url
+          {https://developer.mozilla.org/en-US/docs/Web/API/WebSocket}.
+End of file on the terminal!
 
-Underfull \hbox (badness 10000) in paragraph at lines 8--11
-[]\T1/cmr/m/n/10.95 ``Websocket ob-ject.'' https://developer.mozilla.org/en-
- []
-
-! Undefined control sequence.
-l.14   \url
-           {https://developers.google.com/protocol-buffers/docs/overview}.
-? 
-
-Underfull \hbox (badness 2142) in paragraph at lines 13--16
-[]\T1/cmr/m/n/10.95 ``Protocol buffers guide-line.'' https://developers.google.
-com/protocol-
- []
-
-! Undefined control sequence.
-l.18 ``protobuf.js.'' \url
-                          {https://github.com/dcodeIO/protobuf.js}.
-? 
-! Undefined control sequence.
-l.23   \url
-           {https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/O...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.23 ...g/fr/docs/Web/JavaScript/Reference/Objets_
-                                                  globaux/Promise}.
-? 
-! Extra }, or forgotten $.
-l.23 ...vaScript/Reference/Objets_globaux/Promise}
-                                                  .
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.25 
-     
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.25 
-     
-? 
-
-Overfull \hbox (195.4531pt too wide) in paragraph at lines 22--25
-[]\T1/cmr/m/n/10.95 ``Promise.'' https://developer.mozilla.org/fr/docs/Web/Java
-Script/Reference/Objets$[]\OML/cmm/m/it/10.95 lobaux=Promise: Accessed \OT1/cmr
-/m/n/10.95 :
- []
-
-! Undefined control sequence.
-l.28   \url
-           {http://exploringjs.com/es6/ch_promises.html}.
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.28   \url{http://exploringjs.com/es6/ch_
-                                          promises.html}.
-? 
-! Extra }, or forgotten $.
-l.28 ...tp://exploringjs.com/es6/ch_promises.html}
-                                                  .
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.30 
-     
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.30 
-     
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--30
-[]\T1/cmr/m/n/10.95 ``25. promises for asyn-chronous pro-gram-ming.''
- []
-
-) [11
-
-] (./report.aux) ) 
+ 
 Here is how much of TeX's memory you used:
- 3231 strings out of 493015
- 41557 string characters out of 6133376
- 112684 words of memory out of 5000000
- 6743 multiletter control sequences out of 15000+600000
+ 4098 strings out of 493014
+ 55253 string characters out of 6133350
+ 135308 words of memory out of 5000000
+ 7562 multiletter control sequences out of 15000+600000
  17534 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,15n,32p,219b,1458s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on report.dvi (11 pages, 18636 bytes).
+ 37i,15n,32p,342b,1111s stack positions out of 5000i,500n,10000p,200000b,80000s
+./report.bbl:9:  ==> Fatal error occurred, no output PDF file produced!

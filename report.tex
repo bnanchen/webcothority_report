@@ -13,8 +13,10 @@
 
 \input{cover}
 
+\begingroup
+\let\cleardoublepage\clearpage
 \tableofcontents
-\newpage
+\endgroup
 
 \chapter{Introduction}
 \section{History}
@@ -202,34 +204,115 @@ The function \say{websocket\_status()} returns a Promise object. The generator f
 stops when reaching \say{websocket\_status()}. \say{The main strength of generators is that they provide a single-threaded, synchronous-looking code style, while allowing you to hide the asynchronicity away as an implementation detail.}~\cite{runGenerator}.
 The idea is to \say{yield} out promises and let them restart the generator function when
 they are fulfilled. To do so we need to create a new function that will control the generator function's iterator.\\
-\begin{lstlisting}[caption={~\cite{runGenerator}}, captionpos=b]
+\begin{lstlisting}[caption={Extract from the project's code~\cite{runGenerator}}, captionpos=b]
   function runGenerator(g) {
-    let it = g();
+    let iterator = g();
     (function iterate(message) {
-        let ret = it.next(message);
+        let ret = iterator.next(message);
 
         if (!ret.done) {
             ret.value.then(iterate);
         }
     })();
-    }
+  }
 \end{lstlisting}
 \leavevmode \\
-This function take a generator function as parameter
+This function takes a generator function as parameter. The \say{iterator} function
+is the generator function. The inner-function \say{iterate()} will look if a promise
+returns the value \say{message} from \say{iterator.next(message)}. If not (\say{ret.done} == false), the function
+will iterate again.\\
+
+\subsection{Implementation}
+Now all the elements needed are presented, it only remains to do it for each node.\\
+
+\begin{lstlisting}[caption={Extract from the project's code reaching conodes at port 7003, 7005 and 7007}, captionpos=b]
+  runGenerator(function* generator() {
+        listNodes = [];
+        let message = yield websocket_status(7003);
+        listNodes.push(nodeCreation(message));
+        message = yield websocket_status(7005);
+        listNodes.push(nodeCreation(message));
+        message = yield  websocket_status(7007);
+        listNodes.push(nodeCreation(message));
+        // some code
+    });
+\end{lstlisting}
+\leavevmode \\
+As said above the \say{websocket\_status()} function returns a Promise object. Thus
+the generator function \say{generator()} will \say{yield} before each \say{websocket\_status()} call.
+The generator function is given in parameter to the \say{runGenerator()} function.\\
+The Promise API, the generator function and the util function \say{runGenerator()} allow to hide
+the asynchronous part of the code. It is more readable and more modular.\\
 
 % Google Chrome with async
-% each 3 seconds
 
 % Not final part if recursive method done [BEGIN]
 Then it only remains to do it for each node.
 % Not final part if recursive method done [END]
 
+\section{Signature part}
+The semester project must implement the possibility to send a file for a collective signature
+and to verify a signature.
+
+
+In the Cothority project the signature is a Schnorr signature, which is a zero-knowledge proof presented
+by Mr.Schnorr in 1989. It is \say{based on the intractability of certain discrete logarithm problems}~\cite{wikiSchnorr}.\\
+In the part where the user can send a file and a signature to do a verification,
+the website needs to calculate the aggregate key using the public keys of the conodes.
+More details will be presented in the Implementation subsection.\\
+The private and the public key used in the Cothority project require the usage of
+the Edwards-curve Digital Signature Algorithm (edDSA).
+\say{edDSA is a variant of Schnorr's signature system with Twisted Edwards curves.}~\cite{edDSA}.
+The Cothority project uses Ed25519, which is an instantiation of EdDSA, for the
+public key signature. Ed25519 has some interesting aspect as a fast key generation,
+small keys and an high security level~\cite{ed25519}.\\
+
+
+\subsection{Send a file for a collective signature}
+\subsubsection{Analysis}
 
 
 
+\subsubsection{Tools}
 
-%talk about the problem with map in protofile and after runGenerator
 
+\subsubsection{Implementation}
+The user has the possibility to upload a file and download a JSON file containing
+the signature's file, the filename, the date, the aggregate key and the hash of the file.\\
+When the file has been uploaded to the website, it remains to contact a conode to sign it.\\
+\begin{lstlisting}[caption={.proto file}, captionpos=b]
+  message ServerIdentity{
+            required bytes public = 1;
+            required bytes id = 2;
+            required string address = 3;
+            required string description = 4;
+        }
+
+        message Roster {
+            optional bytes id = 1;
+            repeated ServerIdentity list = 2;
+            optional bytes aggregate = 3;
+        }
+
+        message SignatureRequest {
+            required bytes message = 1;
+            required Roster roster = 2;
+        }
+
+        message SignatureResponse {
+            required bytes hash = 1;
+            required bytes signature = 2;
+            required bytes aggregate = 3;
+        }
+\end{lstlisting}
+\leavevmode \\
+
+
+%talk about the problem encountered with Linus
+
+
+% talk about the graphic part at the end
+% each 3 seconds
 
 \bibliography{report}{}
 \bibliographystyle{ieeetr}
