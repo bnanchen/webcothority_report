@@ -9,6 +9,8 @@
 \usepackage{color}
 \usepackage{dirtytalk}
 
+\graphicspath{{illustrations/}}
+
 \begin{document}
 
 \input{cover}
@@ -257,7 +259,7 @@ and to verify a signature.
 
 In the Cothority project the signature is a Schnorr signature, which is a zero-knowledge proof presented
 by Mr.Schnorr in 1989. It is \say{based on the intractability of certain discrete logarithm problems}~\cite{wikiSchnorr}.\\
-In the part where the user can send a file and a signature to do a verification,
+In the part where the user can send a file and sign it by the conodes,
 the website needs to calculate the aggregate key using the public keys of the conodes.
 More details will be presented in the Implementation subsection.\\
 The private and the public key used in the Cothority project require the usage of
@@ -266,18 +268,39 @@ the Edwards-curve Digital Signature Algorithm (edDSA).
 The Cothority project uses Ed25519, which is an instantiation of EdDSA, for the
 public key signature. Ed25519 has some interesting aspect as a fast key generation,
 small keys and an high security level~\cite{ed25519}.\\
-
+% TODO deplace the above paragraph?!?!?!
 
 \subsection{Send a file for a collective signature}
 \subsubsection{Analysis}
 
-
-
-\subsubsection{Tools}
-
-
 \subsubsection{Implementation}
-The user has the possibility to upload a file and download a JSON file containing
+The implementation of the HTML part is straightforward. It needs an input tag to
+submit a file and all the collapse-thing is managed by the Bootstrap framework~\cite{bootstrap}.\\
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=125mm]{verification_signature.jpg}
+\caption{Interface}
+\end{figure}
+\leavevmode \\
+
+The file submitted is read as an ArrayBuffer~\cite{ArrayBuffer}. The Promise APIs,
+a generator function and the \say{runGenerator()} function are used to deal with
+the asynchronous part of submitting a file. The reading of the file is returned
+inner a Promise object in a generator function that is given in paramter to the
+\say{runGenerator()} util function (go to subsection n°2.1 for more details on
+the manner to tackle the asynchronous part).\\ % TODO come back for the number of the subsection
+
+Afterward the file needs to be signed. To do so the program uses two libraries
+protobuf.js~\cite{protobufjs} that was introduced before and js-nacl~\cite{jsnacl}.
+As said on the library's GitHub page: \say{A high-level Javascript API wrapping an Emscripten-compiled libsodium, a cryptographic library based on NaCl. Includes both in-browser and node.js support.}.
+NaCl (Networking and Cryptography library) is a software library written in C for
+network communication, encryption, decryption, signatures,\ldots~\cite{nacl}. Its
+goal is to \say{provide all of the core operations needed to build higher-level cryptographic tools}~\cite{nacl}.
+Little disclaimer NaCl is pronounced "salt".
+In this semester project the js-nacl library is employed % TODO rester ici!!!!!!
+
+The user has the possibility to submit a file and download a JSON file containing
 the signature's file, the filename, the date, the aggregate key and the hash of the file.\\
 When the file has been uploaded to the website, it remains to contact a conode to sign it.\\
 \begin{lstlisting}[caption={.proto file}, captionpos=b]
@@ -314,7 +337,10 @@ When the file has been uploaded to the website, it remains to contact a conode t
 % talk about the graphic part at the end
 % each 3 seconds
 
+\begingroup
+\let\cleardoublepage\clearpage
 \bibliography{report}{}
 \bibliographystyle{ieeetr}
+\endgroup
 
 \end{document}
