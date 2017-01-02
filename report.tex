@@ -260,18 +260,28 @@ and to verify a signature.
 In the Cothority project the signature is a Schnorr signature, which is a zero-knowledge proof presented
 by Mr.Schnorr in 1989. It is \say{based on the intractability of certain discrete logarithm problems}~\cite{wikiSchnorr}.\\
 In the part where the user can send a file and sign it by the conodes,
-the website needs to calculate the aggregate key using the public keys of the conodes.
+the website needs to calculate the aggregate-key using the public-keys of the conodes.
 More details will be presented in the Implementation subsection.\\
-The private and the public key used in the Cothority project require the usage of
+The private and the public-key used in the Cothority project require the usage of
 the Edwards-curve Digital Signature Algorithm (edDSA).
 \say{edDSA is a variant of Schnorr's signature system with Twisted Edwards curves.}~\cite{edDSA}.
 The Cothority project uses Ed25519, which is an instantiation of EdDSA, for the
-public key signature. Ed25519 has some interesting aspect as a fast key generation,
+public-key signature. Ed25519 has some interesting aspect as a fast key generation,
 small keys and an high security level~\cite{ed25519}.\\
 % TODO deplace the above paragraph?!?!?!
 
+The user has the possibility to submit a file and download a JSON file with the
+signature and other informations.\\
+
 \subsection{Send a file for a collective signature}
+
 \subsubsection{Analysis}
+The calculation of the aggregate-key shall be done in the website for security reason.
+The server could make up a pair of public and private-keys, sign with it and send
+the make up public-key to the website as the aggregate-key. The security of all
+the servers would be questioning.
+To accomplish it the program needs to collect the public-key of each servers.
+Then given that the Cothority project uses Ed25519 % TODO ici suite à écrire!
 
 \subsubsection{Implementation}
 The implementation of the HTML part is straightforward. It needs an input tag to
@@ -291,18 +301,20 @@ inner a Promise object in a generator function that is given in paramter to the
 \say{runGenerator()} util function (go to subsection n°2.1 for more details on
 the manner to tackle the asynchronous part).\\ % TODO come back for the number of the subsection
 
+% TODO déplacer ce paragraphe en haut?!?!
 Afterward the file needs to be signed. To do so the program uses two libraries
 protobuf.js~\cite{protobufjs} that was introduced before and js-nacl~\cite{jsnacl}.
 As said on the library's GitHub page: \say{A high-level Javascript API wrapping an Emscripten-compiled libsodium, a cryptographic library based on NaCl. Includes both in-browser and node.js support.}.
 NaCl (Networking and Cryptography library) is a software library written in C for
 network communication, encryption, decryption, signatures,\ldots~\cite{nacl}. Its
 goal is to \say{provide all of the core operations needed to build higher-level cryptographic tools}~\cite{nacl}.
-Little disclaimer NaCl is pronounced "salt".
-In this semester project the js-nacl library is employed % TODO rester ici!!!!!!
+Little disclaimer NaCl is pronounced \say{salt}.\\
+In this semester project the js-nacl library is employed to generate a SHA-256 of the file and
+to verify the signature knowing the hash of the file and the aggregate-key.\\
 
-The user has the possibility to submit a file and download a JSON file containing
-the signature's file, the filename, the date, the aggregate key and the hash of the file.\\
-When the file has been uploaded to the website, it remains to contact a conode to sign it.\\
+When the websocket is appropriately opened, the communication is done through a websocket
+using 4 \.proto file messages.
+
 \begin{lstlisting}[caption={.proto file}, captionpos=b]
   message ServerIdentity{
             required bytes public = 1;
@@ -329,6 +341,107 @@ When the file has been uploaded to the website, it remains to contact a conode t
         }
 \end{lstlisting}
 \leavevmode \\
+
+As said in the Analysis subsection the website needs to calculate the aggregate-key.
+Initially a list of each conode's public-key needs to be created. The status part
+of the website looks after collecting servers' informations every 3 seconds. A variable,
+which contains all the informations of the conodes, is added to the \say{window} object.
+Adding an element to the \say{window} object is a proper way to define a global variable
+in JavaScript~\cite{globalVariable}. Thus this list is used to collect each public-key
+of the conodes. Having that the calculation of the aggregate-key can begin.
+The program utilizes an other NaCl library: \say{TweetNaCl.js}~\cite{tweetNacl} to
+pack and unpack %* TODO what?!?
+and to addition the points.\\
+
+\begin{lstlisting}[caption={Extract of the code calculating the aggregate-key}, captionpos=b]
+  const listServers = window.listNodes.map(function(node, index) {
+                const server = node.server;
+                const pub = new Uint8Array(server.public.toArrayBuffer()); // public key of a server
+                // the point is represented as a 2-dimensional array
+                const pubNeg = [gf(), gf(), gf(), gf()]; // zero-point
+                unpackneg(pubNeg, pub);
+                const pubPosArr = new Uint8Array(32);
+                pack(pubPosArr, pubNeg);
+                const pubPos = [gf(), gf(), gf(), gf()]; // zero-point
+                unpackneg(pubPos, pubPosArr);
+                if (index == 0) {
+                    agg = pubPos;
+                } else {
+                    // add pubPos to agg, storing result in agg
+                    add(agg, pubPos);
+                }
+                return new siProto({public: server.public, id: server.id, address: server.address,
+                    description: server.description});
+            });
+            pack(aggKey, agg);
+\end{lstlisting}
+\leavevmode \\
+
+Having calculated the aggregate-key, the website sends to one conode the list of servers
+and the hash of the file. The server responds with a message containing the signature
+and the hash of the file. The server's response and the aggregate-key are entrusted to a function \say{saveToFile(fileSigned, filename, message)}.
+The function takes as parameters the signed file contained inside an ArrayBuffer,
+the filename and an array message containing the signature and the aggregate-key.
+The function calculates the SHA-256 hash of the file using a function from js-nacl library.
+The signature, the aggregate-key and the hash are translated in base64 to be more readable.\\
+
+From there on the JSON file is created and proposed to be downloaded to the website's user.
+The JSON file contains the signature's file, the filename, the date, the aggregate-key and the file's hash.\\
+
+\begin{lstlisting}[caption={Example a downloadable JSON file}, captionpos=b]
+  "filename": "file",
+  "date": "3/12/2016",
+  "signature": "vVppwEgya0T22mGlKBfj4Tx+BVQQx0EAH3XFLClfwSbskCxEsPIJ62ZUoD3N7ksRCEK2M/XA6flV2tLsiQmrAf4=",
+  "aggregate-key": "IjgFxLpeV8IOVShIGC6ESh4cnczF1m5RRSE8jguueG4=",
+  "hash": "9UmFDLT4jzzfTMZv/5O71Bh73KTlrOTQXKgKYNC/Z0Y="
+\end{lstlisting}
+\leavevmode \\
+
+The JSON file is downloadable using a Blob object~\cite{blob}.
+
+\subsection{Verification}
+
+\subsubsection{Analysis}
+The user needs to submit a JSON file in the same form as the JSON file downloadable
+as previously said. The website have the ability to verify two things.
+First if the hash of the file is the same as the hash on the JSON file. Second if the signature
+is correct.\\
+To accomplish the first part, the program extracts the hash from the JSON file and
+calculates the SHA-256 hash of the submitted file and compare the two of them.\\
+The second part, % TODO partie obscure de comment la librairie vérifie cela. Le code sur GitHub est illible
+
+\subsubsection{Implementation}
+The UI section is completed following the same behavior as before.\\
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=125mm]{verification_verification.jpg}
+\caption{Interface}
+\end{figure}
+\leavevmode \\
+
+The submit of the two files is done in the same way as in the \say{Send a file for a collective signature} part
+using Promise APIs, a generator function and \say{runGenerator()} function.
+The program translates the JSON file into an object due to the native function \say{JSON.parse()}.\\
+The program calculates the SHA-256 hash of the submitted file using the same method as in the
+subsection: \say{Send a file for a collective signature} from the js-nacl~\cite{jsnacl} library.
+Next the hash is translated in base64 and the comparison is done character by character.\\
+
+The verification of the signature is accomplished using the function \say{nacl.crypto\_sign\_verify\_detached} from the js-nacl~\cite{jsnacl} library.
+Caution the function is experimental but it passed all the tests done during the development.
+The function takes as parameters the signature, the file's hash and the aggregate-key found in
+the JSON file. The function returns a boolean depending on the result of the verification.\\
+
+The result of the two verifications is displayed in a modal box.\\
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=125mm]{modal.jpg}
+\caption{Modal box displaying the result of the verifications}
+\end{figure}
+\leavevmode \\
+
+\section{Conclusion}
 
 
 %talk about the problem encountered with Linus
