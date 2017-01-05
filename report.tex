@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper, twoside, openright]{book} %draft
+\documentclass[11pt, a4paper, twoside, openright, openany]{book} %draft
 
 \usepackage{graphicx,color}
 \usepackage{amssymb, amsmath, array}
@@ -21,18 +21,132 @@
 \tableofcontents
 \endgroup
 
-\chapter{Introduction}
-%First present the work at Dedis Cothority and Cosi
-Distributed cryptography spreads the operation of a cryptosystem among a group
-of servers in a fault-tolerant way~\cite{definition}.\\
-The DEDIS lab at EPFL created the Cothority project, which implements decentralized
-and distributed cryptographic protocols.\\
 
-TODO:presentation of the report!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+\chapter{Introduction}
+Distributed cryptography spreads the operation of a cryptosystem among a group
+of servers in a fault-tolerant way~\cite{definition}.
+\newline
+The DeDis team at EPFL is working among others on a software project called \say{Cothority}.
+Cothority (Decentralized Withness Cosigning) is a \say{multi-party cryptographic signatures}~\cite{cothorityInfo}.
+\newline
+In order to accomplish that they developed the CoSi protocol (Collective Signing),
+which will produce a collective signature by decentralized servers.
+The outcoming signature has the same verification cost and size as an individual signature.
+A digital signature is used to verify a file's origin and content.
+\newline
+This endeavor addresses a significant issue. Per example a certificate or a software
+update now needs one single signature from a corporate or a government (or anything/anybody) to validate it.
+This represents a high-value item for criminals, intelligence agency,\ldots
+The CoSi protocol provides a validation at every authoritative statement a validation,
+which is produced by a group of independent parties (named conodes),
+before any device or client use it~\cite{cosi}.\\
+
+
+% TODO:presentation of the report!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 \chapter{Aims and goals}
-\chapter{Analysis of the methodology and tools utilised}
+The goal of this semester project is to furnish a web-interface to the Cothority project.
+\newline
+The aims stated are to provide a status-array with informations like port number,
+name or bandwidth used for each contacted conodes, to be able to send a file for
+a digital signature using the CoSi protocol and to verify if a digital signature
+corresponds to a particular file.\\
+
+\chapter{Tools utilised}
+Obviously the language choosen to implement the web-interface is JavaScript.
+The HTML markup language and the CSS style sheet language are used as well.
+\newline
+The Bootstrap framework~\cite{bootstrap} is employed for designing the website.\\
+
+\section{Libraries}
+Several libraries are used in the semester project.
+\newline
+The jQuery library~\cite{query} is utilized to
+facilitate the selection and modification of DOM (Document Object Model) elements.\\
+
+The protobuf.js~\cite{protobufjs} is a pure JavaScript implementation of Google's Protobuf.
+It uses the same format of .proto file.
+The Cothority's approach for serializing structured data is a Google's Protobuf-like.
+It seems evident to use the same way for the web-interface.
+\newline
+\say{Protocol buffers are a flexible, efficient, automated mechanism for
+serializing structured data-think XML, but smaller, faster, and simpler.}~\cite{protobufDefi}.\\
+
+\begin{lstlisting}[caption={Example of .proto file}, captionpos=b]
+ message Foo{
+            required bytes a = 1;
+            optional bytes b = 2;
+        }
+\end{lstlisting}
+\leavevmode \\
+
+A .proto file is composed of protocol buffer message(s). Each message contains name-value pair(s).
+The value is a unique tag. Each tag is \say{used to identify your
+ fields in the message binary format}~\cite{protobufDefi}.
+Each pair has a type. There is multiple disponible tags.
+\newline
+The last element to define is rule field. The web-interface
+uses two rule fields: \say{required} and \say{optional}. The protocol buffer message
+with a \say{required} field is obligate to send or receive the field, contrary to
+the message with a \say{optional} field, which is not obligate to send or receive the field in question.\\
+
+The js-nacl~\cite{jsnacl} library is adopted in the Verification part of the project.
+As said on the library's GitHub page: \say{A high-level Javascript API wrapping an Emscripten-compiled libsodium, a cryptographic library based on NaCl. Includes both in-browser and node.js support.}.
+NaCl (Networking and Cryptography library) is a software library written in C for
+network communication, encryption, decryption, signatures,\ldots~\cite{nacl}. Its
+goal is to \say{provide all of the core operations needed to build higher-level cryptographic tools}~\cite{nacl}.
+Little disclaimer NaCl is pronounced \say{salt}.\\
+
+Other libraries like js-nacl, protobuf.js,etc.\ are used and will be presented
+in subsections below.\\
+
 \chapter{Problems that arose and solutions implemented to solve them}
+\section{Status Part}
+The first problem to tackle was the create a communication between the website
+and a conode.
+\newline
+The object Websocket~\cite{websocketPage} of the JavaScript Web APIs offers the tools to create a communication
+between a browser and a server and send/receive data.
+\newline
+At first an empty protocol buffer message is sent in a Blob~\cite{blob} object containing
+the .proto file in bytes.\\
+
+\begin{lstlisting}[caption={Empty protocol buffer message}, captionpos=b]
+  message Request {
+  }
+\end{lstlisting}
+
+The request being sent, through a Websocket object, the web page waits for response from the conode.\\
+
+\begin{lstlisting}[caption={response protocol buffer message}, captionpos=b]
+  message ServerIdentity{
+    				required bytes public = 1;
+    				required bytes id = 2;
+    				required string address = 3;
+    				required string description = 4;
+				}
+
+  message Response {
+    				map<string, Status> system = 1;
+    				optional ServerIdentity server = 2;
+
+				    message Status {
+        				map<string, string> field = 1;
+    				}
+				}
+\end{lstlisting}
+\leavevmode \\
+
+The response is is a map with field corresponding to another message format, which
+is a map of a string with a string. Each key corresponding to an element of the conode's
+status (port number, hostname, number of bytes received and sent, number of services,
+ connexion type, uptime, name and version) and each field to its value.\\
+
+ % TODO resté ici
+
+\section{Verification Part}
+
+
 \chapter{Strategical choices undertaken during implementation}
 \chapter{Results}
 \chapter{Theortical and practical limitations of the project and its implementation}
@@ -40,15 +154,7 @@ TODO:presentation of the report!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 \chapter{Theoritical and practical knowledge gained through the project}
 \chapter{Step-by-step}
 
-%Myself
-\section{Aims and Goals}
-The goal of this semester project is to furnish a web-interface to the Cothority
-project.\\
-The aims stated at a summer meeting with Mr.Linus Gasser are to create an
-interface with status' conodes, be able to send a file for a collective signature
-and to verify a signature.\\
-
-
+\iffalse
 \chapter{Analysis}
 The first part of the semester project was to acquire knowledge in JavaScript and
 HTML and become familiar with the JQuery library. For delivering a skeleton of
@@ -57,25 +163,6 @@ Next thing to settle was the communication between the website and a conode.
 The JavaScript Web APIs contain all the necessary to handle this problem.
 The object Websocket~\cite{websocketPage} offers all the tools to create a
 communication between a browser and a server.\\
-
-TODO:presentation of the .proto files!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-The Cothority's approach for serializing structured data is a Google's Protobuf-like.
-As said on the website of Google's Protobuf:\say{Protocol buffers are a flexible,
-efficient, automated mechanism for serializing structured data - think XML, but
-smaller, faster, and simpler.}~\cite{protobufDefi}.\\
-Taking this into account and knowing that Google's Protobuf doesn't support generated
-code in JavaScript, the choice was made on the library protobuf.js~\cite{protobufjs}.
-It is a pure JavaScript implementation of Google's Protobuf. It uses the same format
-of .proto file.
-
-\begin{lstlisting}[caption={example of .proto file}, captionpos=b]
- message Foo{
-            required bytes a = 1;
-            required bytes b = 2;
-        }
-\end{lstlisting}
 
 %talk about the implementation of the Status Part
 \section{Status part}
@@ -90,6 +177,8 @@ An empty .proto file is send in a Blob object containing the .proto file in byte
   message Request {
   }
 \end{lstlisting}
+
+\fi
 
 The request being sent the webpage waits for a response. The response will be the
 status of the concerning conode. It is received as a .proto file.

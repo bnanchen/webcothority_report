@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  4 JAN 2017 16:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  5 JAN 2017 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -299,7 +299,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )) [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo_
-epfl_coul-eps-converted-to.pdf>] (./report.toc)
+epfl_coul-eps-converted-to.pdf>] (./report.toc
+Overfull \hbox (4.38078pt too wide) in paragraph at lines 5--5
+ [] []\T1/cmr/bx/n/10.95 Problems that arose and so-lu-tions im-ple-mented to s
+olve them []  
+ []
+
+
+Overfull \hbox (13.9324pt too wide) in paragraph at lines 12--12
+ [] []\T1/cmr/bx/n/10.95 Theoritical and prac-ti-cal knowl-edge gained through 
+the project []  
+ []
+
+)
 \tf@toc=\write3
 \openout3 = `report.toc'.
 
@@ -308,137 +320,178 @@ epfl_coul-eps-converted-to.pdf>] (./report.toc)
 ]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--31
-
+Overfull \hbox (0.23334pt too wide) in paragraph at lines 26--43
+\T1/cmr/m/n/10.95 called ``Cothor-ity''. Cothor-ity (De-cen-tral-ized With-ness
+ Cosign-ing) is a ``multi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--41
+Underfull \hbox (badness 10000) in paragraph at lines 26--43
 
  []
 
 [3
 
-] [4
-
 ]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--51
+Underfull \hbox (badness 10000) in paragraph at lines 48--54
+
+ []
+
+[4
+
+]
+Chapter 3.
+
+Overfull \hbox (0.57503pt too wide) in paragraph at lines 56--60
+\T1/cmr/m/n/10.95 Obviously the lan-guage choosen to im-ple-ment the web-interf
+ace is JavaScript.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--60
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--79
-
- []
-
-[5]
-Overfull \hbox (18.90189pt too wide) in paragraph at lines 90--91
-[][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (31.96747pt too wide) in paragraph at lines 92--93
-[][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (58.09863pt too wide) in paragraph at lines 93--94
-[][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (51.56584pt too wide) in paragraph at lines 97--98
-[][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (77.697pt too wide) in paragraph at lines 98--100
-[][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (97.29538pt too wide) in paragraph at lines 101--102
-[][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--111
+Underfull \hbox (badness 10000) in paragraph at lines 62--66
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--120
+Underfull \hbox (badness 10000) in paragraph at lines 67--74
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--92
+
+ []
+
+[5
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 93--99
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--102
 
  []
 
 [6]
-Overfull \hbox (12.3691pt too wide) in paragraph at lines 128--129
+Chapter 4.
+[7
+
+]
+Chapter 5.
+[8
+
+]
+Chapter 6.
+[9
+
+]
+Chapter 7.
+[10
+
+]
+Chapter 8.
+[11
+
+]
+Chapter 9.
+[12
+
+]
+Chapter 10.
+[13
+
+]
+Chapter 11.
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--154
+
+ []
+
+[14
+
+]
+Overfull \hbox (18.90189pt too wide) in paragraph at lines 165--166
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (31.96747pt too wide) in paragraph at lines 167--168
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (58.09863pt too wide) in paragraph at lines 168--169
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (51.56584pt too wide) in paragraph at lines 172--173
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (77.697pt too wide) in paragraph at lines 173--175
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (97.29538pt too wide) in paragraph at lines 176--177
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--186
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--195
+
+ []
+
+[15]
+Overfull \hbox (12.3691pt too wide) in paragraph at lines 203--204
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (31.96747pt too wide) in paragraph at lines 130--131
+Overfull \hbox (31.96747pt too wide) in paragraph at lines 205--206
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (156.0905pt too wide) in paragraph at lines 136--137
+Overfull \hbox (156.0905pt too wide) in paragraph at lines 211--212
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (273.68074pt too wide) in paragraph at lines 137--138
+Overfull \hbox (273.68074pt too wide) in paragraph at lines 212--213
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][] 
  []
 
 
-Overfull \hbox (58.09863pt too wide) in paragraph at lines 138--139
+Overfull \hbox (58.09863pt too wide) in paragraph at lines 213--214
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 147--152
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 155.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
- [7]
-Underfull \hbox (badness 10000) in paragraph at lines 162--168
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--187
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--195
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 205--210
-
  []
 
 
@@ -446,241 +499,289 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--227
 
  []
 
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 230.
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 243--249
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--273
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 230.
+ [16]
+Underfull \hbox (badness 10000) in paragraph at lines 237--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--276
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 288--290
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--250
 
  []
 
-<illustrations/verification_signature.jpg, id=48, 974.64125pt x 290.08376pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--262
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 267--270
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 280--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--302
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 318--324
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--348
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 363--365
+
+ []
+
+<illustrations/verification_signature.jpg, id=77, 974.64125pt x 290.08376pt>
 File: illustrations/verification_signature.jpg Graphic file (type jpg)
 
 <use illustrations/verification_signature.jpg>
 Package pdftex.def Info: illustrations/verification_signature.jpg used on input
- line 293.
+ line 368.
 (pdftex.def)             Requested size: 355.65944pt x 105.85533pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--304
+Underfull \hbox (badness 10000) in paragraph at lines 373--379
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--315
+Underfull \hbox (badness 10000) in paragraph at lines 381--390
 
  []
 
-[11 <./illustrations/verification_signature.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+[20 <./illustrations/verification_signature.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 419--420
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--356
+Underfull \hbox (badness 10000) in paragraph at lines 421--431
 
  []
 
-[12]
-Overfull \hbox (71.16422pt too wide) in paragraph at lines 358--359
+[21]
+Overfull \hbox (71.16422pt too wide) in paragraph at lines 433--434
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (293.27911pt too wide) in paragraph at lines 360--361
+Overfull \hbox (293.27911pt too wide) in paragraph at lines 435--436
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (84.2298pt too wide) in paragraph at lines 361--362
+Overfull \hbox (84.2298pt too wide) in paragraph at lines 436--437
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (97.29538pt too wide) in paragraph at lines 362--363
+Overfull \hbox (97.29538pt too wide) in paragraph at lines 437--438
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (97.29538pt too wide) in paragraph at lines 366--367
+Overfull \hbox (97.29538pt too wide) in paragraph at lines 441--442
 [][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (51.56584pt too wide) in paragraph at lines 371--372
+Overfull \hbox (51.56584pt too wide) in paragraph at lines 446--447
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (280.21353pt too wide) in paragraph at lines 374--375
+Overfull \hbox (280.21353pt too wide) in paragraph at lines 449--450
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--380
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--388
+Underfull \hbox (badness 10000) in paragraph at lines 456--463
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--391
+Underfull \hbox (badness 10000) in paragraph at lines 464--466
 
  []
 
-[13]
-Overfull \hbox (332.47586pt too wide) in paragraph at lines 395--396
+[22]
+Overfull \hbox (332.47586pt too wide) in paragraph at lines 470--471
 [][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (71.16422pt too wide) in paragraph at lines 396--397
+Overfull \hbox (71.16422pt too wide) in paragraph at lines 471--472
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (5.8363pt too wide) in paragraph at lines 397--398
+Overfull \hbox (5.8363pt too wide) in paragraph at lines 472--473
 [][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--400
+Underfull \hbox (badness 10000) in paragraph at lines 474--475
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--416
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
 
  []
 
 
-<illustrations/verification_verification.jpg, id=61, 1001.7425pt x 230.8625pt>
+<illustrations/verification_verification.jpg, id=89, 1001.7425pt x 230.8625pt>
 File: illustrations/verification_verification.jpg Graphic file (type jpg)
 
 <use illustrations/verification_verification.jpg>
 Package pdftex.def Info: illustrations/verification_verification.jpg used on in
-put line 419.
+put line 494.
 (pdftex.def)             Requested size: 355.65944pt x 81.96556pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 422--423
+Underfull \hbox (badness 10000) in paragraph at lines 497--498
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--430
+Underfull \hbox (badness 10000) in paragraph at lines 499--505
 
  []
 
-[14 <./illustrations/verification_verification.jpg>]
-Overfull \hbox (143.3763pt too wide) in paragraph at lines 431--435
+[23 <./illustrations/verification_verification.jpg>]
+Overfull \hbox (143.3763pt too wide) in paragraph at lines 506--510
 []\T1/cmr/m/n/10.95 The ver-i-fi-ca-tion of the sig-na-ture is ac-com-plished u
 s-ing the func-tion ``nacl.crypto_sign_verify_detached''
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--435
+Underfull \hbox (badness 10000) in paragraph at lines 506--510
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 511--512
 
  []
 
-<illustrations/modal.jpg, id=66, 611.28375pt x 329.23pt>
+<illustrations/modal.jpg, id=94, 611.28375pt x 329.23pt>
 File: illustrations/modal.jpg Graphic file (type jpg)
 
 <use illustrations/modal.jpg>
-Package pdftex.def Info: illustrations/modal.jpg used on input line 440.
+Package pdftex.def Info: illustrations/modal.jpg used on input line 515.
 (pdftex.def)             Requested size: 355.65944pt x 191.55133pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 518--519
 
  []
 
-(./report.bbl [15 <./illustrations/modal.jpg>]
+(./report.bbl [24 <./illustrations/modal.jpg>]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 40--44
+Underfull \hbox (badness 1728) in paragraph at lines 52--57
+\T1/cmr/m/n/10.95 Jo-vanovic Li-nus Gasser Nico-las Gailly Is-mail Khoffi and B
+ryan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--63
 \T1/cmtt/m/n/10.95 mozilla . org / en-[]US / docs / Web / JavaScript / Referenc
 e / Global _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--55
+Underfull \hbox (badness 10000) in paragraph at lines 70--74
 \T1/cmtt/m/n/10.95 mozilla . org / fr / docs / Web / JavaScript / Reference / O
 bjets _
  []
 
+[25
 
-Underfull \hbox (badness 1762) in paragraph at lines 63--67
+]
+Underfull \hbox (badness 1762) in paragraph at lines 82--86
 []\T1/cmr/m/n/10.95 N. Moeller S. Josef-s-son, SJD AB.  ed-dsa and ed25519 draf
 t-
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 69--72
+Underfull \hbox (badness 1057) in paragraph at lines 88--91
 []\T1/cmr/m/n/10.95 Kyle Simp-son.  The ba-sics of es6 gen-er-a-tors.  URL: $\T
 1/cmtt/m/n/10.95 https : / /
  []
 
-[16
-
-]) [17] (./report.aux) ) 
+) [26] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 4222 strings out of 493014
- 57469 string characters out of 6133350
- 136477 words of memory out of 5000000
- 7671 multiletter control sequences out of 15000+600000
+ 4226 strings out of 493014
+ 57517 string characters out of 6133350
+ 136505 words of memory out of 5000000
+ 7675 multiletter control sequences out of 15000+600000
  17848 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,15n,32p,342b,1454s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-
-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-
-super/sfbx1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-su
-per/sfbx1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-supe
-r/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/
-sfbx2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sf
-bx2488.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm
-1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm12
-00.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1440
-.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm2074.p
-fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on report.pdf (17 pages, 309617 bytes).
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-s
+uper/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-s
+uper/sfbx1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-sup
+er/sfbx1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super
+/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/s
+fbx2074.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfb
+x2488.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1
+095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm120
+0.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1440.
+pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on report.pdf (26 pages, 325544 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 152 PDF objects out of 1000 (max. 8388607)
+ 102 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
