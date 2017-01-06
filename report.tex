@@ -11,7 +11,8 @@
 \usepackage{url}
 
 \graphicspath{{illustrations/}}
-
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
 \begin{document}
 
 \input{cover}
@@ -39,7 +40,8 @@ update now needs one single signature from a corporate or a government (or anyth
 This represents a high-value item for criminals, intelligence agency,\ldots
 The CoSi protocol provides a validation at every authoritative statement a validation,
 which is produced by a group of independent parties (named conodes),
-before any device or client use it~\cite{cosi}.\\
+before any device or client use it~\cite{cosi}.
+\bigbreak
 
 
 % TODO:presentation of the report!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -50,19 +52,22 @@ The goal of this semester project is to furnish a web-interface to the Cothority
 The aims stated are to provide a status-array with informations like port number,
 name or bandwidth used for each contacted conodes, to be able to send a file for
 a digital signature using the CoSi protocol and to verify if a digital signature
-corresponds to a particular file.\\
+corresponds to a particular file.
+\bigbreak
 
 \chapter{Tools utilised}
 Obviously the language choosen to implement the web-interface is JavaScript.
 The HTML markup language and the CSS style sheet language are used as well.
 \newline
-The Bootstrap framework~\cite{bootstrap} is employed for designing the website.\\
+The Bootstrap framework~\cite{bootstrap} is employed for designing the website.
+\bigbreak
 
 \section{Libraries}
 Several libraries are used in the semester project.
 \newline
 The jQuery library~\cite{query} is utilized to
-facilitate the selection and modification of DOM (Document Object Model) elements.\\
+facilitate the selection and modification of DOM (Document Object Model) elements.
+\bigbreak
 
 The protobuf.js~\cite{protobufjs} is a pure JavaScript implementation of Google's Protobuf.
 It uses the same format of .proto file.
@@ -70,7 +75,8 @@ The Cothority's approach for serializing structured data is a Google's Protobuf-
 It seems evident to use the same way for the web-interface.
 \newline
 \say{Protocol buffers are a flexible, efficient, automated mechanism for
-serializing structured data-think XML, but smaller, faster, and simpler.}~\cite{protobufDefi}.\\
+serializing structured data-think XML, but smaller, faster, and simpler.}~\cite{protobufDefi}.
+\bigbreak
 
 \begin{lstlisting}[caption={Example of .proto file}, captionpos=b]
  message Foo{
@@ -78,7 +84,7 @@ serializing structured data-think XML, but smaller, faster, and simpler.}~\cite{
             optional bytes b = 2;
         }
 \end{lstlisting}
-\leavevmode \\
+\leavevmode \newline
 
 A .proto file is composed of protocol buffer message(s). Each message contains name-value pair(s).
 The value is a unique tag. Each tag is \say{used to identify your
@@ -88,133 +94,88 @@ Each pair has a type. There is multiple disponible tags.
 The last element to define is rule field. The web-interface
 uses two rule fields: \say{required} and \say{optional}. The protocol buffer message
 with a \say{required} field is obligate to send or receive the field, contrary to
-the message with a \say{optional} field, which is not obligate to send or receive the field in question.\\
+the message with a \say{optional} field, which is not obligate to send or receive the field in question.
+\bigbreak
 
 The js-nacl~\cite{jsnacl} library is adopted in the Verification part of the project.
 As said on the library's GitHub page: \say{A high-level Javascript API wrapping an Emscripten-compiled libsodium, a cryptographic library based on NaCl. Includes both in-browser and node.js support.}.
 NaCl (Networking and Cryptography library) is a software library written in C for
 network communication, encryption, decryption, signatures,\ldots~\cite{nacl}. Its
 goal is to \say{provide all of the core operations needed to build higher-level cryptographic tools}~\cite{nacl}.
-Little disclaimer NaCl is pronounced \say{salt}.\\
+Little disclaimer NaCl is pronounced \say{salt}.
+\bigbreak
+
+Another JavaScript NaCl library TweetNaCl.js~\cite{tweetNacl} is used because
+the js-nacl doesn't implement two essential functions.
+More will be tell when the time comes.
+\bigbreak
 
 Other libraries like js-nacl, protobuf.js,etc.\ are used and will be presented
-in subsections below.\\
+in subsections below.
+\bigbreak
 
-\chapter{Problems that arose and solutions implemented to solve them}
-\section{Status Part}
-The first problem to tackle was the create a communication between the website
+\chapter{Problems arose and their solutions}
+In the following sections the problems arose and their solutions are treated by
+in which part of the development they showed up.
+\bigbreak
+
+\section{Communication client/server}
+The first problem to tackle was to create a communication between the website
 and a conode.
 \newline
 The object Websocket~\cite{websocketPage} of the JavaScript Web APIs offers the tools to create a communication
 between a browser and a server and send/receive data.
 \newline
 At first an empty protocol buffer message is sent in a Blob~\cite{blob} object containing
-the .proto file in bytes.\\
+the .proto file in bytes.
+\bigbreak
 
 \begin{lstlisting}[caption={Empty protocol buffer message}, captionpos=b]
   message Request {
   }
 \end{lstlisting}
 
-The request being sent, through a Websocket object, the web page waits for response from the conode.\\
+The request being sent, through a Websocket object, the web page waits for response from the conode.
+\bigbreak
 
 \begin{lstlisting}[caption={response protocol buffer message}, captionpos=b]
   message ServerIdentity{
-    				required bytes public = 1;
-    				required bytes id = 2;
-    				required string address = 3;
-    				required string description = 4;
-				}
+      required bytes public = 1;
+      required bytes id = 2;
+      required string address = 3;
+      required string description = 4;
+	}
 
   message Response {
-    				map<string, Status> system = 1;
-    				optional ServerIdentity server = 2;
+      map<string, Status> system = 1;
+      optional ServerIdentity server = 2;
 
-				    message Status {
-        				map<string, string> field = 1;
-    				}
-				}
+			message Status {
+          map<string, string> field = 1;
+    	}
+	}
 \end{lstlisting}
-\leavevmode \\
+\leavevmode \newline
 
 The response is is a map with field corresponding to another message format, which
 is a map of a string with a string. Each key corresponding to an element of the conode's
 status (port number, hostname, number of bytes received and sent, number of services,
- connexion type, uptime, name and version) and each field to its value.\\
+ connexion type, uptime, name and version) and each field to its value.
+\bigbreak
 
- % TODO resté ici
+\section{Asynchronicity}
 
-\section{Verification Part}
-
-
-\chapter{Strategical choices undertaken during implementation}
-\chapter{Results}
-\chapter{Theortical and practical limitations of the project and its implementation}
-\chapter{Future work}
-\chapter{Theoritical and practical knowledge gained through the project}
-\chapter{Step-by-step}
-
-\iffalse
-\chapter{Analysis}
-The first part of the semester project was to acquire knowledge in JavaScript and
-HTML and become familiar with the JQuery library. For delivering a skeleton of
-the website before the beginning of the semester.\\
-Next thing to settle was the communication between the website and a conode.
-The JavaScript Web APIs contain all the necessary to handle this problem.
-The object Websocket~\cite{websocketPage} offers all the tools to create a
-communication between a browser and a server.\\
-
-%talk about the implementation of the Status Part
-\section{Status part}
-The JavaScript Web APIs contain all the necessary to handle the communication
-part. The object Websocket~\cite{websocketPage} offers all the tools to create a
-communication between a browser and a server and send/receive data. All the elements send to conodes are .proto files.\\
-First it is necessary to establish the connection. A connection is established
-with each conode.\\
-An empty .proto file is send in a Blob object containing the .proto file in bytes.\\
-
-\begin{lstlisting}[caption={empty .proto file}, captionpos=b]
-  message Request {
-  }
-\end{lstlisting}
-
-\fi
-
-The request being sent the webpage waits for a response. The response will be the
-status of the concerning conode. It is received as a .proto file.
-
-\begin{lstlisting}[caption={response .proto file}, captionpos=b]
-  message ServerIdentity{
-    				required bytes public = 1;
-    				required bytes id = 2;
-    				required string address = 3;
-    				required string description = 4;
-				}
-
-  message Response {
-    				map<string, Status> system = 1;
-    				optional ServerIdentity server = 2;
-
-				    message Status {
-        				map<string, string> field = 1;
-    				}
-				}
-\end{lstlisting}
-
-The response is is a map with field corresponding to another message format, which
-is a map of a string with a string. Each key corresponding to an element of the conode's
-status (port number, hostname, number of bytes received and sent,\ldots) and each field
-to its value.\\
-%Mettre une subsection?????????????
-\subsection{Promise API}
-That being said, the response message is triggered by our opening socket message. Therefore the
-response message will be asynchronous.\\
-To tackle the asynchronous problem, the introduction of the Promise object in JavaScript must be
-made. First it is important to know that JavaScript is single threaded. It means
-that if a code snippet is waiting on data, the thread can't be waiting on it and doesn't execute
-the remaining part of the code. In that case JavaScript program would be very slow.
-So through the history of JavaScript many tools were created to handle asynchronous programs.
-Like callback functions that was widely used, but widely disliked too. It even has a nickname:\say{Callback Hell}.\\
+Nevertheless the response message is triggered by our opening socket message.
+Therefore the response message will be asynchronous.
+\newline
+To tackle the asynchronous problem, the introduction of the JavaScript Promise object shall be made.
+First it is important to know that JavaScript is single threaded.
+It means that if a code snippet is waiting on data, the thread can't be waiting on it
+and doesn't execute the remaining part of the program. In that case JavaScript program
+would be very slow. So through the history of the JavaScript language many tools were
+created to handle asynchronous part of code. Like callback functions that were widely
+used, but widely disliked too. It even has a nickname: \say{Callback Hell}.
+\bigbreak
 
 \begin{lstlisting}[caption={Example of Callback Hell with its typical pyramid shape}, captionpos=b]
   fs.readdir(source, function (err, files) {
@@ -242,11 +203,13 @@ Like callback functions that was widely used, but widely disliked too. It even h
   }
 })
 \end{lstlisting}
-\leavevmode \\
-Other libraries (jQuery) begun implementing promises to help developers overcome the \say{Callback Hell}.
-This eventually leads ECMAScript 6 to adopt The Promise API~\cite{promise} natively in JavaScript~\cite{ecmaPromise}.
+\leavevmode \newline
+
+Other libraries (e.g. jQuery) begun implementing promises to help developers overcome the \say{Callback Hell}.
+This eventually leads ECMAScript 6 to adopt the Promise API~\cite{promise} natively in JavaScript~\cite{ecmaPromise}.
 The object Promise allows to retrieve a value in the \say{future}.
-\\
+\bigbreak
+
 \begin{lstlisting}[caption={Structure of a Promise}, captionpos=b]
   var promise = new Promise(function(resolve, reject) {
     // asynchronous snippet code
@@ -257,292 +220,366 @@ The object Promise allows to retrieve a value in the \say{future}.
     }
   });
 \end{lstlisting}
-\leavevmode \\
+\leavevmode \newline
+
 A callback function needs to be passed at the Promise's constructor. This function
-will have two parameters. The resolve function will be called if everything worked in
-the asynchronous part, otherwise the reject function will be called.\\
+will have at most two parameters. The resolve function (mandatory) will be called
+if everything worked in the asynchronous part, otherwise the reject function (optional)
+will be called.
+\newline
 In the case of this semester project, the resolve function will return the response
-.proto file containing all the status data from the conode.\\
+protocol buffer message containing all the status data from the conode.
+\bigbreak
 
-\leavevmode \\
-
-\subsection{Generator}
-To handle the Promise returned the project will use another feature of ECMAScript 6 called a Generator.
-It's a new kind of function. It can be paused in the middle and resumed later. Of course,
-other parts of the code are running during the pause.\\
+To deal with the Promise object returned the program will use another feature of ECMAScript 6
+called a Generator. It's a new kind of function. It can be paused in the middle and
+resumed later. Naturally other parts of the code are running during the pause.
+\bigbreak
 
 \begin{lstlisting}[caption={Structure of a generator function}, captionpos=b]
   function* foo() {
     var x = yield 1;
   }
   \end{lstlisting}
-\leavevmode \\
-The \say{*} marks the function as a generator one. The other different element of
-the code snippet is the keyword:\say{yield}. \say{yield \underline{\hspace{1cm}} is called a \say{yield expression} (and not a statement) because when we restart the generator, we will send a value back in, and whatever we send in will be the computed result of that yield \underline{\hspace{3cm}} expression.}
-~\cite{yieldExpression}. The function will stop when it encounters the \say{yield} keyword.
-Whenever (if ever) the generator is restarted, the \say{yield 1} expression will send \say{1} back.
-The part following the \say{yield} keyword is the expression that will be returned.\\
+\leavevmode \newline
 
- \begin{lstlisting}[caption={Restart of a generator function}, captionpos=b]
+The \say{*} marks the function as a generator one.
+\newline
+The other different element, with a traditional function, of the code snippet is the keyword: \say{yield}.
+\say{The yield \underline{\hspace{1cm}} is called a \say{yield expression} (and not a statement)
+because when we restart the generator, we will send a value back in, and whatever
+we send in will be the computed result of that yield \underline{\hspace{3cm}} expression.}~\cite{yieldExpression}.
+The function halts when it encounters the \say{yield} keyword.
+\newline
+Whenever (if ever) the generator is restarted, the \say{yield 1} expression (from the above generator function) will send
+\say{1} back. The part following the \say{yield} keyword is the expression that will
+be returned.
+\bigbreak
+
+\begin{lstlisting}[caption={Restart of a generator function}, captionpos=b]
    var a = foo();
    a.next();
  \end{lstlisting}
- \leavevmode \\
-The call to the \say{next()} method will execute the generator (from the last \say{yield}) to the next encounter of a \say{keyword} (if there is any).\\
-Returning to the project's code, a generator function is used with the function returning a Promise object.\\
+ \leavevmode \newline
+
+The call to the \say{next()} method executes the generator (from the last \say{yield}
+until the next encounter of the keyword (if there is any left)).
+\newline
+Returning to the website's code, a generator function is used with the function returning a Promise object
+containing the response protocol buffer message.
+\bigbreak
 
 \begin{lstlisting}[caption={Extract from the project's code}, captionpos=b]
   function* generator() {
-        // some code
-        var message = yield websocket_status(7003);
-        listNodes.push(nodeCreation(message));
-        // some code
-    });
-}
+      // some code
+      var message = yield websocket_status(7003);
+      listNodes.push(nodeCreation(message));
+      // some code
+  }
 \end{lstlisting}
-\leavevmode \\
-The function \say{websocket\_status()} returns a Promise object. The generator function
-stops when reaching \say{websocket\_status()}. \say{The main strength of generators is that they provide a single-threaded, synchronous-looking code style, while allowing you to hide the asynchronicity away as an implementation detail.}~\cite{runGenerator}.
+\leavevmode \newline
+
+The function \say{websocket\_status()} is the one returning the Promise object. The generator function
+pauses when reaching \say{websocket\_status()}. \say{The main strength of generators is that they provide a single-threaded, synchronous-looking code style, while allowing you to hide the asynchronicity away as an implementation detail.}~\cite{runGenerator}.
 The idea is to \say{yield} out promises and let them restart the generator function when
-they are fulfilled. To do so we need to create a new function that will control the generator function's iterator.\\
+they are fulfilled. To do so we need to create a new function that will control the generator function's iterator.
+\bigbreak
+
 \begin{lstlisting}[caption={Extract from the project's code~\cite{runGenerator}}, captionpos=b]
   function runGenerator(g) {
     let iterator = g();
     (function iterate(message) {
-        let ret = iterator.next(message);
+      let ret = iterator.next(message);
 
-        if (!ret.done) {
-            ret.value.then(iterate);
-        }
+      if (!ret.done) {
+        ret.value.then(iterate);
+      }
     })();
   }
 \end{lstlisting}
-\leavevmode \\
-This function takes a generator function as parameter. The \say{iterator} function
-is the generator function. The inner-function \say{iterate()} will look if a promise
-returns the value \say{message} from \say{iterator.next(message)}. If not (\say{ret.done} == false), the function
-will iterate again.\\
+\leavevmode \newline
 
-\subsection{Implementation}
-Now all the elements needed are presented, it only remains to do it for each node.\\
+This function takes a generator function as parameter. The \say{iterator} function
+variable is the generator function. The inner-function \say{iterate()} looks if
+a promise returns the value \say{message} from \say{iterator.next(message)}.
+If not, which implies \say{ret.done} is equal to false, the function will iterate again.
+
+Now all the elements needed, to bring a solution for the asynchronous problem, has
+been presented. It only remains to do it for each conodes (here in port 7003, 7005, 7007).
+\bigbreak
 
 \begin{lstlisting}[caption={Extract from the project's code reaching conodes at port 7003, 7005 and 7007}, captionpos=b]
   runGenerator(function* generator() {
-        listNodes = [];
-        let message = yield websocket_status(7003);
-        listNodes.push(nodeCreation(message));
-        message = yield websocket_status(7005);
-        listNodes.push(nodeCreation(message));
-        message = yield  websocket_status(7007);
-        listNodes.push(nodeCreation(message));
-        // some code
+      listNodes = [];
+      let message = yield websocket_status(7003);
+      listNodes.push(nodeCreation(message));
+      message = yield websocket_status(7005);
+      listNodes.push(nodeCreation(message));
+      message = yield  websocket_status(7007);
+      listNodes.push(nodeCreation(message));
+      // some code
     });
 \end{lstlisting}
-\leavevmode \\
-As said above the \say{websocket\_status()} function returns a Promise object. Thus
-the generator function \say{generator()} will \say{yield} before each \say{websocket\_status()} call.
-The generator function is given in parameter to the \say{runGenerator()} function.\\
-The Promise API, the generator function and the util function \say{runGenerator()} allow to hide
-the asynchronous part of the code. It is more readable and more modular.\\
+\leavevmode \newline
 
-% Google Chrome with async
+As said before the \say{websocket\_status()} function returns a Promis object.
+Thus the generator function \say{generator()} will halt (\say{yield}) before each
+\say{websocket\_status()} call.
+\newline
+The generator function is given in parameter to the \say{runGenerator()} function.
+\newline
+The Promise APIs, the generator function and the util function \say{runGenerator()} allow
+to hide the asynchronous part of the code. It is more readable and modular.
+\bigbreak
 
-% Not final part if recursive method done [BEGIN]
-Then it only remains to do it for each node.
-% Not final part if recursive method done [END]
+% TODO écrire un truc concernant des autres parties du code qui ont eu asynchron problem
+% TODO Google Chrome with async
 
-\section{Signature part}
-The semester project must implement the possibility to send a file for a collective signature
-and to verify a signature.
-
-
+\section{Verification Part}
+The following problem to tackle is the implementation the possibility to send a
+file for a collective signature and to verify a signature.
+\newline
 In the Cothority project the signature is a Schnorr signature, which is a zero-knowledge proof presented
-by Mr.Schnorr in 1989. It is \say{based on the intractability of certain discrete logarithm problems}~\cite{wikiSchnorr}.\\
+by Mr.Schnorr in 1989. It is \say{based on the intractability of certain discrete logarithm problems}~\cite{wikiSchnorr}.
+\newline
 In the part where the user can send a file and sign it by the conodes,
 the website needs to calculate the aggregate-key using the public-keys of the conodes.
-More details will be presented in the Implementation subsection.\\
+More details will be presented in the Implementation subsection.
+\newline
 The private and the public-key used in the Cothority project require the usage of
 the Edwards-curve Digital Signature Algorithm (edDSA).
 \say{edDSA is a variant of Schnorr's signature system with Twisted Edwards curves.}~\cite{edDSA}.
 The Cothority project uses Ed25519, which is an instantiation of EdDSA, for the
 public-key signature. Ed25519 has some interesting aspect as a fast key generation,
-small keys and an high security level~\cite{ed25519}.\\
+small keys and an high security level~\cite{ed25519}.
+\bigbreak
 % TODO deplace the above paragraph?!?!?!
 
-The user has the possibility to submit a file and download a JSON file with the
-signature and other informations.\\
-
 \subsection{Send a file for a collective signature}
+The user has the possibility to submit a file and download a JSON file with the
+signature and other informations.
+\bigbreak
 
-\subsubsection{Analysis}
-The calculation of the aggregate-key shall be done in the website for security reason.
-The server could make up a pair of public and private-keys, sign with it and send
-the make up public-key to the website as the aggregate-key. The security of all
-the servers would be questioning.
-To accomplish it the program needs to collect the public-key of each servers.
-Then given that the Cothority project uses Ed25519 % TODO ici suite à écrire!
-
-\subsubsection{Implementation}
 The implementation of the HTML part is straightforward. It needs an input tag to
-submit a file and all the collapse-thing is managed by the Bootstrap framework~\cite{bootstrap}.\\
+submit a file and all the collapse-elements are managed by the Bootstrap framework~\cite{bootstrap}.
+\bigbreak
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=125mm]{verification_signature.jpg}
 \caption{Interface}
 \end{figure}
-\leavevmode \\
+\leavevmode \newline
 
 The file submitted is read as an ArrayBuffer~\cite{ArrayBuffer}. The Promise APIs,
 a generator function and the \say{runGenerator()} function are used to deal with
 the asynchronous part of submitting a file. The reading of the file is returned
 inner a Promise object in a generator function that is given in paramter to the
-\say{runGenerator()} util function (go to subsection n°2.1 for more details on
-the manner to tackle the asynchronous part).\\ % TODO come back for the number of the subsection
+\say{runGenerator()} util function (see above for more details on
+the manner to tackle the asynchronous part). % TODO come back for the number of the subsection
+\bigbreak
 
-% TODO déplacer ce paragraphe en haut?!?!
-Afterward the file needs to be signed. To do so the program uses two libraries
-protobuf.js~\cite{protobufjs} that was introduced before and js-nacl~\cite{jsnacl}.
-As said on the library's GitHub page: \say{A high-level Javascript API wrapping an Emscripten-compiled libsodium, a cryptographic library based on NaCl. Includes both in-browser and node.js support.}.
-NaCl (Networking and Cryptography library) is a software library written in C for
-network communication, encryption, decryption, signatures,\ldots~\cite{nacl}. Its
-goal is to \say{provide all of the core operations needed to build higher-level cryptographic tools}~\cite{nacl}.
-Little disclaimer NaCl is pronounced \say{salt}.\\
-In this semester project the js-nacl library is employed to generate a SHA-256 of the file and
-to verify the signature knowing the hash of the file and the aggregate-key.\\
+Afterward the file needs to be signed.
+\newline
 
-When the websocket is appropriately opened, the communication is done through a websocket
-using 4 \.proto file messages.
+As soon as the websocket is appropriately opened, the communication is done through a websocket
+using 4 protocol buffer messages.
+\bigbreak
 
 \begin{lstlisting}[caption={.proto file}, captionpos=b]
   message ServerIdentity{
-            required bytes public = 1;
-            required bytes id = 2;
-            required string address = 3;
-            required string description = 4;
-        }
+      required bytes public = 1;
+      required bytes id = 2;
+      required string address = 3;
+      required string description = 4;
+  }
 
-        message Roster {
-            optional bytes id = 1;
-            repeated ServerIdentity list = 2;
-            optional bytes aggregate = 3;
-        }
+  message Roster {
+      optional bytes id = 1;
+      repeated ServerIdentity list = 2;
+      optional bytes aggregate = 3;
+  }
 
-        message SignatureRequest {
-            required bytes message = 1;
-            required Roster roster = 2;
-        }
+  message SignatureRequest {
+      required bytes message = 1;
+      required Roster roster = 2;
+  }
 
-        message SignatureResponse {
-            required bytes hash = 1;
-            required bytes signature = 2;
-            required bytes aggregate = 3;
-        }
+  message SignatureResponse {
+      required bytes hash = 1;
+      required bytes signature = 2;
+      required bytes aggregate = 3;
+  }
 \end{lstlisting}
-\leavevmode \\
+\leavevmode \newline
 
-As said in the Analysis subsection the website needs to calculate the aggregate-key.
+The calculation of the aggregate-key shall be done in the website for security reason.
+The server could make up a pair of public and private-keys, sign with it and send
+the make up public-key to the website as the aggregate-key. The security of all
+the servers would be questioning.
+% TODO ici suite à écrire!
+\bigbreak
+
 Initially a list of each conode's public-key needs to be created. The status part
 of the website looks after collecting servers' informations every 3 seconds. A variable,
 which contains all the informations of the conodes, is added to the \say{window} object.
 Adding an element to the \say{window} object is a proper way to define a global variable
 in JavaScript~\cite{globalVariable}. Thus this list is used to collect each public-key
 of the conodes. Having that the calculation of the aggregate-key can begin.
-The program utilizes an other NaCl library: \say{TweetNaCl.js}~\cite{tweetNacl} to
-pack and unpack %* TODO what?!?
-and to addition the points.\\
+The program utilizes another NaCl library: \say{TweetNaCl.js}~\cite{tweetNacl} to
+pack, negatively unpack and addition the points. The function \say{pack()} transforms a point x, y, z, t in Ed25519
+into a JavaScript Uin8Array object. On the other hand the function \say{unpackneg()}
+transforms a a JavaScript Uint8Array object into point x, y, z, t and multiply
+the x-axis by -1. For the reason that it is preferable for operations in the TweetNaCl.js library.
+\bigbreak
 
 \begin{lstlisting}[caption={Extract of the code calculating the aggregate-key}, captionpos=b]
-  const listServers = window.listNodes.map(function(node, index) {
-                const server = node.server;
-                const pub = new Uint8Array(server.public.toArrayBuffer()); // public key of a server
-                // the point is represented as a 2-dimensional array
-                const pubNeg = [gf(), gf(), gf(), gf()]; // zero-point
-                unpackneg(pubNeg, pub);
-                const pubPosArr = new Uint8Array(32);
-                pack(pubPosArr, pubNeg);
-                const pubPos = [gf(), gf(), gf(), gf()]; // zero-point
-                unpackneg(pubPos, pubPosArr);
-                if (index == 0) {
-                    agg = pubPos;
-                } else {
-                    // add pubPos to agg, storing result in agg
-                    add(agg, pubPos);
-                }
-                return new siProto({public: server.public, id: server.id, address: server.address,
-                    description: server.description});
-            });
-            pack(aggKey, agg);
+const listServers = window.listNodes.map(function(node, index) {
+  const server = node.server;
+  const pub = new Uint8Array(server.public.toArrayBuffer());
+  pub[31] ^= 128;
+  const pubPos = [gf(), gf(), gf(), gf()]; // zero-point
+  unpackneg(pubPos, pub);
+  if (index === 0) {
+    agg = pubPos;
+  } else {
+    add(agg, pubPos);
+  }
+  // some code
+});
+pack(aggKey, agg);
 \end{lstlisting}
-\leavevmode \\
+\leavevmode \newline
+
+In the above code the variable \say{pub} is the public-key of a conode retrieved thanks to
+the global variable \say{window.listNodes}.
+\newline
+Then the line \say{pub[31] \^= 128} is
+a multiplication of the x-axis by -1, due to the fact that the TweetNaCl.js has not
+an \say{unpack} function but only an \say{unpackneg} function as said before.
+\newline
+Afterward the addition of the point is done using the \say{add()} function from
+the TweetNaCl.js library.
+\bigbreak
 
 Having calculated the aggregate-key, the website sends to one conode the list of servers
 and the hash of the file. The server responds with a message containing the signature
-and the hash of the file. The server's response and the aggregate-key are entrusted to a function \say{saveToFile(fileSigned, filename, message)}.
+and the hash of the file. The server's response and the aggregate-key are entrusted to a function
+\say{saveToFile(fileSigned, filename, message)}.
+\newline
 The function takes as parameters the signed file contained inside an ArrayBuffer,
 the filename and an array message containing the signature and the aggregate-key.
 The function calculates the SHA-256 hash of the file using a function from js-nacl library.
-The signature, the aggregate-key and the hash are translated in base64 to be more readable.\\
+The signature, the aggregate-key and the hash are translated in base64 to be more readable.
+\bigbreak
 
 From there on the JSON file is created and proposed to be downloaded to the website's user.
-The JSON file contains the signature's file, the filename, the date, the aggregate-key and the file's hash.\\
+The JSON file contains the signature's file, the filename, the date, the aggregate-key and the file's hash.
+\bigbreak
 
 \begin{lstlisting}[caption={Example a downloadable JSON file}, captionpos=b]
   "filename": "file",
   "date": "3/12/2016",
-  "signature": "vVppwEgya0T22mGlKBfj4Tx+BVQQx0EAH3XFLClfwSbskCxEsPIJ62ZUoD3N7ksRCEK2M/XA6flV2tLsiQmrAf4=",
+  "signature": "vVppwEgya0T22mGlKBfj4Tx+BVQQx0EAH3XFLC
+                lfwSbskCxEsPIJ62ZUoD3N7ksRCEK2M/XA6flV2tLsiQmrAf4=",
   "aggregate-key": "IjgFxLpeV8IOVShIGC6ESh4cnczF1m5RRSE8jguueG4=",
   "hash": "9UmFDLT4jzzfTMZv/5O71Bh73KTlrOTQXKgKYNC/Z0Y="
 \end{lstlisting}
-\leavevmode \\
+\leavevmode \newline
 
 The JSON file is downloadable using a Blob object~\cite{blob}.
+\bigbreak
 
-\subsection{Verification}
-
-\subsubsection{Analysis}
+\subsection{Verification of the signature}
 The user needs to submit a JSON file in the same form as the JSON file downloadable
-as previously said. The website have the ability to verify two things.
+as previously presented. The website have the ability to perform two verifications.
+\newline
 First if the hash of the file is the same as the hash on the JSON file. Second if the signature
-is correct.\\
-To accomplish the first part, the program extracts the hash from the JSON file and
-calculates the SHA-256 hash of the submitted file and compare the two of them.\\
-The second part, % TODO partie obscure de comment la librairie vérifie cela. Le code sur GitHub est illible
+is correct knowing the hash and the aggregate-key. The hash is the same as in the first verification
+and the aggregate-key is collected from the JSON file.
+\bigbreak
 
-\subsubsection{Implementation}
-The UI section is completed following the same behavior as before.\\
+The UI section is completed following the same behavior as in the section: \say{Send a file for a collective signature}.
+\bigbreak
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=125mm]{verification_verification.jpg}
 \caption{Interface}
 \end{figure}
-\leavevmode \\
+\leavevmode \newline
 
 The submit of the two files is done in the same way as in the \say{Send a file for a collective signature} part
 using Promise APIs, a generator function and \say{runGenerator()} function.
-The program translates the JSON file into an object due to the native function \say{JSON.parse()}.\\
+\bigbreak
+
+The program translates the JSON file into an object due to the native function \say{JSON.parse()}.
+\newline
 The program calculates the SHA-256 hash of the submitted file using the same method as in the
-subsection: \say{Send a file for a collective signature} from the js-nacl~\cite{jsnacl} library.
-Next the hash is translated in base64 and the comparison is done character by character.\\
+section: \say{Send a file for a collective signature} from the js-nacl library.
+Next the hash is translated in base64 and the comparison is done character by character.
+\bigbreak
 
-The verification of the signature is accomplished using the function \say{nacl.crypto\_sign\_verify\_detached} from the js-nacl~\cite{jsnacl} library.
-Caution the function is experimental but it passed all the tests done during the development.
+The verification of the signature is accomplished using the function
+from the js-nacl library \say{nacl.crypto\_sign\_verify\_detached}.
+\newline
+Careful, the function is experimental but it passed all the tests done during the development.
+\newline
 The function takes as parameters the signature, the file's hash and the aggregate-key found in
-the JSON file. The function returns a boolean depending on the result of the verification.\\
+the JSON file. The function returns a boolean depending on the result of the verification.
+\bigbreak
 
-The result of the two verifications is displayed in a modal box.\\
+The result of the two verifications is displayed in a modal box.
+\bigbreak
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=125mm]{modal.jpg}
 \caption{Modal box displaying the result of the verifications}
 \end{figure}
-\leavevmode \\
+\leavevmode \newline
 
-\section{Conclusion}
+\chapter{Results}
+The final product looks like tha image below.
+\bigbreak
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=125mm]{interface.jpg}
+\caption{Web-interface}
+\end{figure}
+\leavevmode \newline
+The status table is refreshed each 3 seconds.
+The website is compatible with Google Chrome, Safari and Firefox (not tested on Opera and Edge).
+% TODO rester ici
+\iffalse
+\chapter{Theoritical and practical limitations of the project and its implementation}
+\chapter{Future work}
+\chapter{Theoritical and practical knowledge gained through the project}
+\chapter{Step-by-step}
+
+\chapter{Analysis}
+The first part of the semester project was to acquire knowledge in JavaScript and
+HTML and become familiar with the JQuery library. For delivering a skeleton of
+the website before the beginning of the semester.\\
+Next thing to settle was the communication between the website and a conode.
+The JavaScript Web APIs contain all the necessary to handle this problem.
+The object Websocket~\cite{websocketPage} offers all the tools to create a
+communication between a browser and a server.\\
+
+%talk about the implementation of the Status Part
+\section{Status part}
+%Mettre une subsection?????????????
+\subsection{Generator}
+
+\subsection{Implementation}
+
+\section{Signature part}
 
 
+\subsection{Verification}
+
+\fi
 %talk about the problem encountered with Linus
 
 
