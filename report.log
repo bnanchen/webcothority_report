@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  7 JAN 2017 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  7 JAN 2017 19:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -501,27 +501,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 554--555
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--563
+Underfull \hbox (badness 10000) in paragraph at lines 556--565
 
  []
 
 
-Overfull \hbox (4.30887pt too wide) in paragraph at lines 564--564
+Overfull \hbox (4.30887pt too wide) in paragraph at lines 566--566
 []\T1/cmr/bx/n/14.4 Theoritical and prac-ti-cal lim-i-ta-tions of the project 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--573
+Underfull \hbox (badness 10000) in paragraph at lines 567--575
 
  []
 
 [16 <./illustrations/interface.jpg>]
-Overfull \hbox (14.06082pt too wide) in paragraph at lines 589--589
+Overfull \hbox (14.06082pt too wide) in paragraph at lines 591--591
 []\T1/cmr/bx/n/14.4 Theoritical and prac-ti-cal knowl-edge gained through
  []
 
 
-Overfull \hbox (0.55696pt too wide) in paragraph at lines 590--596
+Overfull \hbox (0.55696pt too wide) in paragraph at lines 592--598
 \T1/cmr/m/n/10.95 Before this semester project I had never par-ticed HTML, CSS 
 and JavaScript.
  []
@@ -583,7 +583,7 @@ m1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1
 4.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.
 pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pf
 b>
-Output written on report.pdf (19 pages, 312204 bytes).
+Output written on report.pdf (19 pages, 312349 bytes).
 PDF statistics:
  119 PDF objects out of 1000 (max. 8388607)
  78 compressed objects within 1 object stream
