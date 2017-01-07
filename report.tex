@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper, twoside, openright, openany]{book} %draft
+\documentclass[11pt, a4paper, twoside, openright, openany]{article} %draft
 
 \usepackage{graphicx,color}
 \usepackage{amssymb, amsmath, array}
@@ -15,15 +15,15 @@
 \setlength{\parskip}{\baselineskip}
 \begin{document}
 
+\begin{center}
 \input{cover}
+\end{center}
 
-\begingroup
-\let\cleardoublepage\clearpage
 \tableofcontents
-\endgroup
 
+\clearpage
 
-\chapter{Introduction}
+\section{Introduction}
 Distributed cryptography spreads the operation of a cryptosystem among a group
 of servers in a fault-tolerant way~\cite{definition}.
 \newline
@@ -46,7 +46,7 @@ before any device or client use it~\cite{cosi}.
 
 % TODO:presentation of the report!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-\chapter{Aims and goals}
+\section{Aims and goals}
 The goal of this semester project is to furnish a web-interface to the Cothority project.
 \newline
 The aims stated are to provide a status-array with informations like port number,
@@ -55,14 +55,14 @@ a digital signature using the CoSi protocol and to verify if a digital signature
 corresponds to a particular file.
 \bigbreak
 
-\chapter{Tools utilised}
+\section{Tools utilised}
 Obviously the language choosen to implement the web-interface is JavaScript.
 The HTML markup language and the CSS style sheet language are used as well.
 \newline
 The Bootstrap framework~\cite{bootstrap} is employed for designing the website.
 \bigbreak
 
-\section{Libraries}
+\subsection{Libraries}
 Several libraries are used in the semester project.
 \newline
 The jQuery library~\cite{query} is utilized to
@@ -114,12 +114,12 @@ Other libraries like js-nacl, protobuf.js,etc.\ are used and will be presented
 in subsections below.
 \bigbreak
 
-\chapter{Problems arose and their solutions}
+\section{Problems arose and their solutions}
 In the following sections the problems arose and their solutions are treated by
 in which part of the development they showed up.
 \bigbreak
 
-\section{Communication client/server}
+\subsection{Communication client/server}
 The first problem to tackle was to create a communication between the website
 and a conode.
 \newline
@@ -163,7 +163,7 @@ status (port number, hostname, number of bytes received and sent, number of serv
  connexion type, uptime, name and version) and each field to its value.
 \bigbreak
 
-\section{Asynchronicity}
+\subsection{Asynchronicity}
 
 Nevertheless the response message is triggered by our opening socket message.
 Therefore the response message will be asynchronous.
@@ -248,7 +248,7 @@ The \say{*} marks the function as a generator one.
 The other different element, with a traditional function, of the code snippet is the keyword: \say{yield}.
 \say{The yield \underline{\hspace{1cm}} is called a \say{yield expression} (and not a statement)
 because when we restart the generator, we will send a value back in, and whatever
-we send in will be the computed result of that yield \underline{\hspace{3cm}} expression.}~\cite{yieldExpression}.
+we send in will be the computed result of that yield \underline{\hspace{1cm}} expression.}~\cite{yieldExpression}.
 The function halts when it encounters the \say{yield} keyword.
 \newline
 Whenever (if ever) the generator is restarted, the \say{yield 1} expression (from the above generator function) will send
@@ -335,7 +335,7 @@ to hide the asynchronous part of the code. It is more readable and modular.
 % TODO écrire un truc concernant des autres parties du code qui ont eu asynchron problem
 % TODO Google Chrome with async
 
-\section{Verification Part}
+\subsection{Verification Part}
 The following problem to tackle is the implementation the possibility to send a
 file for a collective signature and to verify a signature.
 \newline
@@ -355,7 +355,7 @@ small keys and an high security level~\cite{ed25519}.
 \bigbreak
 % TODO deplace the above paragraph?!?!?!
 
-\subsection{Send a file for a collective signature}
+\subsubsection{Send a file for a collective signature}
 The user has the possibility to submit a file and download a JSON file with the
 signature and other informations.
 \bigbreak
@@ -438,7 +438,7 @@ const listServers = window.listNodes.map(function(node, index) {
   const server = node.server;
   const pub = new Uint8Array(server.public.toArrayBuffer());
   pub[31] ^= 128;
-  const pubPos = [gf(), gf(), gf(), gf()]; // zero-point
+  const pubPos = [gf(), gf(), gf(), gf()];
   unpackneg(pubPos, pub);
   if (index === 0) {
     agg = pubPos;
@@ -457,6 +457,9 @@ the global variable \say{window.listNodes}.
 Then the line \say{pub[31] \^= 128} is
 a multiplication of the x-axis by -1, due to the fact that the TweetNaCl.js has not
 an \say{unpack} function but only an \say{unpackneg} function as said before.
+\newline
+The function \say{gf()} from TweetNacl.js is just a function that returns an array
+of \say{0} of size 16. The variable \say{pubPos} is a zero-point.
 \newline
 Afterward the addition of the point is done using the \say{add()} function from
 the TweetNaCl.js library.
@@ -490,7 +493,7 @@ The JSON file contains the signature's file, the filename, the date, the aggrega
 The JSON file is downloadable using a Blob object~\cite{blob}.
 \bigbreak
 
-\subsection{Verification of the signature}
+\subsubsection{Verification of the signature}
 The user needs to submit a JSON file in the same form as the JSON file downloadable
 as previously presented. The website have the ability to perform two verifications.
 \newline
@@ -529,9 +532,6 @@ The function takes as parameters the signature, the file's hash and the aggregat
 the JSON file. The function returns a boolean depending on the result of the verification.
 \bigbreak
 
-The result of the two verifications is displayed in a modal box.
-\bigbreak
-
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=125mm]{modal.jpg}
@@ -539,8 +539,11 @@ The result of the two verifications is displayed in a modal box.
 \end{figure}
 \leavevmode \newline
 
-\chapter{Results}
-The final product looks like tha image below.
+The result of the two verifications is displayed in a modal box.
+\bigbreak
+
+\section{Results}
+The final product looks like the image below.
 \bigbreak
 
 \begin{figure}[ht!]
@@ -549,16 +552,58 @@ The final product looks like tha image below.
 \caption{Web-interface}
 \end{figure}
 \leavevmode \newline
-The status table is refreshed each 3 seconds.
-The website is compatible with Google Chrome, Safari and Firefox (not tested on Opera and Edge).
-% TODO rester ici
-\iffalse
-\chapter{Theoritical and practical limitations of the project and its implementation}
-\chapter{Future work}
-\chapter{Theoritical and practical knowledge gained through the project}
-\chapter{Step-by-step}
 
-\chapter{Analysis}
+The status table is refreshed each 3 seconds.
+\newline
+The website is compatible with Google Chrome, Safari and Firefox (not tested on Opera and Edge).
+\newline
+All the libraries are in the project folder. This may seem a bit cumbersome but
+it allows more independence and privacy.
+\newline
+
+\section{Theoritical and practical limitations of the project}
+The website contacts only 3 conodes at port 7002, 7004 and 7006. It is an inconvenient
+limitation. The implementation of the features presented lets no remaining time to tackle
+this problem.
+\newline
+At each instantiation of the js-nacl library, the heap is 32 megabytes in size. Therefore
+the user can submit a file of size at most ±8.5 megabytes. Certainly this number is
+not correct for each computer and each browser but it gives a useful idea.
+\newline
+
+\section{Future work}
+As written in above section the website contacts only 3 conodes. The next feature
+to bring is a recursive function. It will ask each conodes to provide a list of each conodes
+that it knows. Next the program contacts the conodes of the list and so forth.
+\newline
+It will be necessary to be careful to stop the recursive function at the right time and
+to look out conodes that the recursive function as already contacted.
+\newline
+This new function will also give work on the Cothority project side. When the website
+contact a conode it should be able to return the list of known conodes.
+\bigbreak
+
+A website is always in development then any new idea can be added.
+\bigbreak
+
+\section{Theoritical and practical knowledge gained through the project}
+Before this semester project I had never particed HTML, CSS and JavaScript. This
+project gave me the opportunity to learn these important languages. The JavaScript language is
+one of the most used language at the moment.
+\newline
+This practical part of web development brought me a theoritical knowledge too.
+In how a browser and a website operate. The particularity of single threaded programmation.
+\bigbreak
+
+I read some articles on decentralized cryptography and edDSA to tackle the problem
+of calculating the aggregate-key.
+\bigbreak
+
+
+\iffalse
+\section{Step-by-step}
+
+\section{Analysis}
 The first part of the semester project was to acquire knowledge in JavaScript and
 HTML and become familiar with the JQuery library. For delivering a skeleton of
 the website before the beginning of the semester.\\
@@ -585,7 +630,7 @@ communication between a browser and a server.\\
 
 % talk about the graphic part at the end
 % each 3 seconds
-
+\clearpage
 \begingroup
 \let\cleardoublepage\clearpage
 \bibliographystyle{plainurl}
