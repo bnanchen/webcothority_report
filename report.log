@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  7 JAN 2017 19:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  9 JAN 2017 22:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -526,9 +526,40 @@ Overfull \hbox (0.55696pt too wide) in paragraph at lines 592--598
 and JavaScript.
  []
 
-[17] (./report.bbl
+
+Overfull \hbox (23.74825pt too wide) in paragraph at lines 606--614
+\T1/cmr/m/n/10.95 It is named: ``run_cothority.sh''. To run it it suf-fices to 
+en-ter: ``./run_cothority.sh''
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 606--614
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 617--619
+
+ []
+
+File: illustrations/interface.jpg Graphic file (type jpg)
+<use illustrations/interface.jpg>
+Package pdftex.def Info: illustrations/interface.jpg used on input line 622.
+(pdftex.def)             Requested size: 355.65944pt x 154.7608pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 625--626
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 627--640
+
+ []
+
+[18] [19] (./report.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 Underfull \hbox (badness 1728) in paragraph at lines 52--57
@@ -554,7 +585,7 @@ Underfull \hbox (badness 1762) in paragraph at lines 82--86
 t-
  []
 
-[18
+[20
 
 ]
 Underfull \hbox (badness 1057) in paragraph at lines 88--91
@@ -562,7 +593,7 @@ Underfull \hbox (badness 1057) in paragraph at lines 88--91
 1/cmtt/m/n/10.95 https : / /
  []
 
-) [19] (./report.aux) ) 
+) [21] (./report.aux) ) 
 Here is how much of TeX's memory you used:
  4205 strings out of 493014
  57380 string characters out of 6133350
@@ -583,10 +614,10 @@ m1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1
 4.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.
 pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pf
 b>
-Output written on report.pdf (19 pages, 312349 bytes).
+Output written on report.pdf (21 pages, 319899 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
+ 125 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

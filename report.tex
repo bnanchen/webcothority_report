@@ -595,15 +595,51 @@ one of the most used language at the moment.
 \newline
 This practical part of web development brought me a theoritical knowledge too.
 In how a browser and a website operate. The particularity of single threaded programmation.
-\bigbreak
+\newline \newline
 
 I read some articles on decentralized cryptography and edDSA to tackle the problem
 of calculating the aggregate-key.
 \bigbreak
 
+\section{Step-by-step guide for installation and running of the final product}
+\subsection{Installation}
+It suffices to open the file \say{cothorityweb.html} in a web browser. The best choice, as
+written before, is Google Chrome.
+\newline
+In the terminal it is important to run a script, which can be found in the folder: cothority/app/cothorityd/
+\newline
+It is named: \say{run\_cothority.sh}. To run it it suffices to enter: \say{./run\_cothority.sh} in the terminal.
+\newline \newline
+Then the website comes alive.
+\bigbreak
+
+\subsection{Running}
+The website is straightforward to use.
+\newline
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=125mm]{interface.jpg}
+\caption{Web-interface}
+\end{figure}
+\leavevmode \newline
+
+The upper part of the web page is dedicated to display the number of conodes, the bandwidth used by all the conodes and
+a table containing some information for each conode.
+\newline \newline
+The bottom part of the web page is consacred to the Verification part of the website.
+\newline
+In clicking on \say{Signature.} a collapse opens and explain how to proceed to sign a certain file.
+It only needs to submit a file. After the website has signed it, a download button appears.
+It suffices to click on it to load the JSON file containing the signature on the computer.
+\newline
+In clicking on \say{Verification.} a collapse opens and explain how to proceed to verify a signature.
+It only needs to submit the file and the JSON file containing the file's signature.
+The website displays a monad presenting the result of the verification between the file's hash and the hash enclosed in the JSON file
+and if the signature is a good one knowing the aggregate-key and the hash (contained in the JSON file).
+\bigbreak
 
 \iffalse
-\section{Step-by-step}
 
 \section{Analysis}
 The first part of the semester project was to acquire knowledge in JavaScript and
