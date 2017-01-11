@@ -27,15 +27,15 @@
 Distributed cryptography spreads the operation of a cryptosystem among a group
 of servers in a fault-tolerant way~\cite{definition}.
 \newline
-The DEDIS team at EPFL is working among others on a software project called \say{Cothority} (Collective Authority).
+The decentralized and distributed systems (DEDIS) team at EPFL is working among others on a software project called Collective Authority (Cothority).
 Cothority is composed of multiple conodes, which are servers running protocols and services.
-It implements different applications as CoSi, Cisc (a distributed key/value storage handled by a blockchain with an SSH-plugin),
+It implements different applications as Collective Signing (CoSi), Cisc (a distributed key/value storage handled by a blockchain with an SSH-plugin),
 Proof of Personhood (prove the existence of humain-being), Guard (use distributed servers to hash passwords),
 Status (returns the status of a conode)~\cite{cothorityWiki}.
 \newline \newline
 Cothority (Decentralized Withness Cosigning) is a \say{multi-party cryptographic signatures}~\cite{cothorityInfo}.
 \newline
-In order to accomplish that they developed the CoSi protocol (Collective Signing),
+In order to accomplish that they developed the CoSi protocol,
 which will produce a collective signature by decentralized servers.
 To perform a collective signature the protocol needs the hash of a file.
 The outcoming signature has the same verification cost and size as an individual signature.
@@ -47,11 +47,16 @@ This represents a high-value item for criminals, intelligence agency,\ldots
 The CoSi protocol provides a validation at every authoritative statement a validation,
 which is produced by a group of independent parties (named conodes),
 before any device or client uses it~\cite{cosi}.
+\newline \newline
+This report initially describes the aims and goals of the semester project.
+Then it introduces the tools used for its implementation.
+Afterward it describes the problems, that arose during the development of the project
+and the solutions found to solve them.
+This leads the report to present the results of the project and the theorical and practical limitations of it.
+Therefore the report suggests possible future works to improve the project.
+At the end the theoritical and practical knowledge gained through the project are depicted and
+a step-by-step guide for installation and running of the final product is detailled.
 \bigbreak
-
-
-% TODO:presentation of the report!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 \section{Aims and goals}
 The goal of this semester project is to furnish a web-interface to the Cothority project.
 As Cothority's applications, the website uses CoSi and Status.
@@ -457,7 +462,7 @@ the TweetNaCl.js library.
 
 Having calculated the aggregate-key, the website sends to one conode the list of servers
 and the hash of the file. On the server side, the server, receiving these informations,
-contacts the other conodes to execute a collective signature based on the CoSi protocol.
+contacts the other conodes to collectively sign the hash of the file using the CoSi protocol.
 Then the server responds with a message containing the signature
 and the hash of the file. The server's response and the aggregate-key are entrusted to a function
 \say{saveToFile(fileSigned, filename, message)}.
@@ -589,9 +594,12 @@ one of the most used language at the moment.
 This practical part of web development brought me a theoritical knowledge too.
 In how a browser and a website operate. The particularity of single threaded programmation.
 \newline \newline
-
-I read some articles on decentralized cryptography and edDSA to tackle the problem
-of calculating the aggregate-key.
+On the cryptographic part, I read some articles on decentralized cryptography.
+I understood the importance in the fields of security, integrity and transparency (among others) of decentralized cryptography.
+With this semester project in DEDIS laboratory, I was lucky to be able to see it at work through the Cothority project.
+\newline
+I was able to discover the surface of the elliptic curve signature scheme EdDSA and
+one occurence of it: Ed25519, which was useful to tackle the problem of calculating the aggregate-key.
 \bigbreak
 
 \section{Step-by-step guide for installation and running of the final product}

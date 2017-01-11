@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  10 JAN 2017 21:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  11 JAN 2017 10:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -315,108 +315,110 @@ the project []
 \openout3 = `report.toc'.
 
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 27--50
+Underfull \hbox (badness 10000) in paragraph at lines 27--59
 
  []
 
 
-Overfull \hbox (2.44589pt too wide) in paragraph at lines 27--50
+Overfull \hbox (2.44589pt too wide) in paragraph at lines 27--59
 \T1/cmr/m/n/10.95 Cothority (De-cen-tral-ized With-ness Cosign-ing) is a ``mult
 i-party cryp-to-graphic
  []
 
 
-Overfull \hbox (0.57503pt too wide) in paragraph at lines 66--70
-\T1/cmr/m/n/10.95 Obviously the lan-guage choosen to im-ple-ment the web-interf
-ace is JavaScript.
+Underfull \hbox (badness 10000) in paragraph at lines 27--59
+
  []
 
 
-Underfull \vbox (badness 4967) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3
 
 ]
+Overfull \hbox (0.57503pt too wide) in paragraph at lines 71--75
+\T1/cmr/m/n/10.95 Obviously the lan-guage choosen to im-ple-ment the web-interf
+ace is JavaScript.
+ []
+
 [4]
-Overfull \hbox (3.0973pt too wide) in paragraph at lines 124--132
+Overfull \hbox (3.0973pt too wide) in paragraph at lines 129--137
 \T1/cmr/m/n/10.95 In the fol-low-ing sub-sec-tions the prob-lems arose and thei
 r so-lu-tions are treated. 
  []
 
-[5] [6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 218.
+
+Underfull \vbox (badness 1024) has occurred while \output is active []
+
+ [5]
+[6]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 223.
 
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 218.
-
-Underfull \hbox (badness 10000) in paragraph at lines 226--234
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 223.
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 231--239
 \T1/cmr/m/n/10.95 ode. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--234
+Underfull \hbox (badness 10000) in paragraph at lines 231--239
 
  []
 
-[7] [8]
-Overfull \hbox (31.96747pt too wide) in paragraph at lines 310--311
+[8]
+Overfull \hbox (31.96747pt too wide) in paragraph at lines 315--316
 [][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (25.43468pt too wide) in paragraph at lines 311--312
+[9]
+Overfull \hbox (25.43468pt too wide) in paragraph at lines 316--317
 [][][][][][][][][][][][][][] 
  []
 
-[9]
-<illustrations/verification_signature.jpg, id=42, 974.64125pt x 290.08376pt>
+[10]
+<illustrations/verification_signature.jpg, id=45, 974.64125pt x 290.08376pt>
 File: illustrations/verification_signature.jpg Graphic file (type jpg)
 
 <use illustrations/verification_signature.jpg>
 Package pdftex.def Info: illustrations/verification_signature.jpg used on input
- line 364.
+ line 369.
 (pdftex.def)             Requested size: 355.65944pt x 105.85533pt.
- [10]
-Underfull \vbox (badness 1755) has occurred while \output is active []
-
  [11 <./illustrations/verification_signature.jpg>]
-Overfull \hbox (58.09863pt too wide) in paragraph at lines 428--429
+Overfull \hbox (58.09863pt too wide) in paragraph at lines 433--434
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (31.96747pt too wide) in paragraph at lines 430--431
+Overfull \hbox (31.96747pt too wide) in paragraph at lines 435--436
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 458--471
+Underfull \hbox (badness 10000) in paragraph at lines 463--476
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--471
+Underfull \hbox (badness 10000) in paragraph at lines 463--476
 
  []
 
 
-Overfull \hbox (5.8363pt too wide) in paragraph at lines 484--485
+Overfull \hbox (5.8363pt too wide) in paragraph at lines 489--490
 [][][][][][][][][][][][][][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 491--500
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 496--505
 
  []
 
 
-Underfull \vbox (badness 4846) has occurred while \output is active []
-
- [13]
-Underfull \hbox (badness 10000) in paragraph at lines 501--503
+Underfull \hbox (badness 10000) in paragraph at lines 506--508
 
  []
 
@@ -426,25 +428,25 @@ File: illustrations/verification_verification.jpg Graphic file (type jpg)
 
 <use illustrations/verification_verification.jpg>
 Package pdftex.def Info: illustrations/verification_verification.jpg used on in
-put line 506.
+put line 511.
 (pdftex.def)             Requested size: 355.65944pt x 81.96556pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--513
+Underfull \hbox (badness 10000) in paragraph at lines 515--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--513
+Underfull \hbox (badness 10000) in paragraph at lines 515--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--528
+Underfull \hbox (badness 10000) in paragraph at lines 519--533
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--528
+Underfull \hbox (badness 10000) in paragraph at lines 519--533
 
  []
 
@@ -453,66 +455,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 514--528
 File: illustrations/modal.jpg Graphic file (type jpg)
 
 <use illustrations/modal.jpg>
-Package pdftex.def Info: illustrations/modal.jpg used on input line 531.
+Package pdftex.def Info: illustrations/modal.jpg used on input line 536.
 (pdftex.def)             Requested size: 305.64113pt x 164.6146pt.
  [15 <./illustrations/modal.jpg>]
 <illustrations/interface.jpg, id=68, 1284.8pt x 559.08875pt>
 File: illustrations/interface.jpg Graphic file (type jpg)
 
 <use illustrations/interface.jpg>
-Package pdftex.def Info: illustrations/interface.jpg used on input line 545.
+Package pdftex.def Info: illustrations/interface.jpg used on input line 550.
 (pdftex.def)             Requested size: 355.65944pt x 154.7608pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 549--558
+Underfull \hbox (badness 10000) in paragraph at lines 554--563
 
  []
 
 
-Overfull \hbox (4.30887pt too wide) in paragraph at lines 559--559
+Overfull \hbox (4.30887pt too wide) in paragraph at lines 564--564
 []\T1/cmr/bx/n/14.4 Theoritical and prac-ti-cal lim-i-ta-tions of the project 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--569
+Underfull \hbox (badness 10000) in paragraph at lines 565--574
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--582
+Underfull \hbox (badness 10000) in paragraph at lines 576--587
 
  []
 
 [16
 
  <./illustrations/interface.jpg>]
-Overfull \hbox (14.06082pt too wide) in paragraph at lines 584--584
+Overfull \hbox (14.06082pt too wide) in paragraph at lines 589--589
 []\T1/cmr/bx/n/14.4 Theoritical and prac-ti-cal knowl-edge gained through
  []
 
 
-Overfull \hbox (0.55696pt too wide) in paragraph at lines 585--592
+Overfull \hbox (0.55696pt too wide) in paragraph at lines 590--603
 \T1/cmr/m/n/10.95 Before this semester project I had never par-ticed HTML, CSS 
 and JavaScript.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 585--592
+Underfull \hbox (badness 10000) in paragraph at lines 590--603
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 585--592
-
- []
-
-
-Overfull \hbox (23.74825pt too wide) in paragraph at lines 599--607
+Overfull \hbox (23.74825pt too wide) in paragraph at lines 607--615
 \T1/cmr/m/n/10.95 It is named: ``run_cothority.sh''. To run it it suf-fices to 
 en-ter: ``./run_cothority.sh''
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--607
+Underfull \hbox (badness 10000) in paragraph at lines 607--615
 
  []
 
@@ -520,21 +517,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 599--607
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-Underfull \hbox (badness 10000) in paragraph at lines 610--612
+Underfull \hbox (badness 10000) in paragraph at lines 618--620
 
  []
 
 File: illustrations/interface.jpg Graphic file (type jpg)
 <use illustrations/interface.jpg>
-Package pdftex.def Info: illustrations/interface.jpg used on input line 615.
+Package pdftex.def Info: illustrations/interface.jpg used on input line 623.
 (pdftex.def)             Requested size: 355.65944pt x 154.7608pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 618--619
+Underfull \hbox (badness 10000) in paragraph at lines 626--627
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 620--633
+Underfull \hbox (badness 10000) in paragraph at lines 628--641
 
  []
 
@@ -579,7 +576,7 @@ Underfull \hbox (badness 1057) in paragraph at lines 93--96
 Here is how much of TeX's memory you used:
  4206 strings out of 493014
  57401 string characters out of 6133350
- 127105 words of memory out of 5000000
+ 128105 words of memory out of 5000000
  7658 multiletter control sequences out of 15000+600000
  14698 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -596,7 +593,7 @@ m1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1
 4.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.
 pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pf
 b>
-Output written on report.pdf (21 pages, 320973 bytes).
+Output written on report.pdf (21 pages, 322067 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream
