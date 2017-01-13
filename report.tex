@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper, twoside, openright, openany]{article} %draft
+\documentclass[11pt, a4paper, twoside, openright, openany]{article}
 
 \usepackage{graphicx,color}
 \usepackage{amssymb, amsmath, array}
@@ -24,15 +24,14 @@
 \clearpage
 
 \section{Introduction}
-Distributed cryptography spreads the operation of a cryptosystem among a group
-of servers in a fault-tolerant way~\cite{definition}.
-\newline
 The decentralized and distributed systems (DEDIS) team at EPFL is working among others on a software project called Collective Authority (Cothority).
 Cothority is composed of multiple conodes, which are servers running protocols and services.
 It implements different applications as Collective Signing (CoSi), Cisc (a distributed key/value storage handled by a blockchain with an SSH-plugin),
 Proof of Personhood (prove the existence of humain-being), Guard (use distributed servers to hash passwords),
 Status (returns the status of a conode)~\cite{cothorityWiki}.
 \newline \newline
+Distributed cryptography spreads the operation of a cryptosystem among a group
+of servers in a fault-tolerant way~\cite{definition}.
 Cothority (Decentralized Withness Cosigning) is a \say{multi-party cryptographic signatures}~\cite{cothorityInfo}.
 \newline
 In order to accomplish that they developed the CoSi protocol,
@@ -44,9 +43,9 @@ A digital signature is used to verify a file's origin and content.
 This endeavor addresses a significant issue. For example a certificate or a software
 update now needs one single signature from a corporation or a government (or anything/anybody) to validate it.
 This represents a high-value item for criminals, intelligence agency,\ldots
-The CoSi protocol provides a validation at every authoritative statement a validation,
-which is produced by a group of independent parties (named conodes),
-before any device or client uses it~\cite{cosi}.
+\newline
+The CoSi protocol provides a validation, which is produced by a group of independent parties (named conodes),
+at every authoritative statement before any device or client uses it~\cite{cosi}.
 \newline \newline
 This report initially describes the aims and goals of the semester project.
 Then it introduces the tools used for its implementation.
@@ -72,15 +71,14 @@ Obviously the language choosen to implement the web-interface is JavaScript.
 The HTML markup language and the CSS style sheet language are used as well.
 \newline
 The Bootstrap framework~\cite{bootstrap} is employed for designing the website.
-\bigbreak
+\break
 
 \subsection{Libraries}
 Several libraries are used in the semester project.
 \newline
 The jQuery library~\cite{query} is used to
 facilitate the selection and modification of DOM (Document Object Model) elements.
-\bigbreak
-
+\newline \newline
 The protobuf.js~\cite{protobufjs} is a pure JavaScript implementation of Google's Protobuf.
 It uses the same format of .proto file.
 The Cothority uses Google's Protobuf.
@@ -106,16 +104,14 @@ The last element to define is the rule field. The web-interface
 uses two rule fields: \say{required} and \say{optional}. The protocol buffer message
 with a \say{required} field is obligate to send or receive the field, contrary to
 the message with a \say{optional} field, which is not obligate to send or receive the field in question.
-\bigbreak
-
+\newline \newline
 The js-nacl~\cite{jsnacl} library is adopted in the Verification part of the project.
 As said on the library's GitHub page: \say{A high-level Javascript API wrapping an Emscripten-compiled libsodium, a cryptographic library based on NaCl. Includes both in-browser and node.js support.}.
 NaCl (Networking and Cryptography library) is a software library written in C for
 network communication, encryption, decryption, signatures,\ldots~\cite{nacl}. Its
 goal is to \say{provide all of the core operations needed to build higher-level cryptographic tools}~\cite{nacl}.
 Little disclaimer NaCl is pronounced \say{salt}.
-\bigbreak
-
+\newline \newline
 Another JavaScript NaCl library TweetNaCl.js~\cite{tweetNacl} is used because
 the js-nacl doesn't implement two essential functions.
 More will be told when the time comes.
@@ -155,7 +151,7 @@ the .proto file in bytes.
 The request being sent, through a Websocket object, the web page waits for response from the conode.
 \bigbreak
 
-\begin{lstlisting}[caption={response protocol buffer message}, captionpos=b]
+\begin{lstlisting}[caption={Response protocol buffer messages}, captionpos=b]
   message ServerIdentity{
       required bytes public = 1;
       required bytes id = 2;
@@ -185,6 +181,7 @@ Nevertheless the response message is triggered by our opening socket message.
 Therefore the response message will be asynchronous.
 \newline
 To tackle the asynchronous problem, the introduction of the JavaScript Promise object shall be made.
+\newline
 First it is important to know that JavaScript is single threaded.
 It means that if a code snippet is waiting on data, the thread can't preempt
 and doesn't execute the remaining part of the program. In that case JavaScript programs
@@ -235,8 +232,7 @@ will be called.
 \newline
 In the case of this semester project, the resolve function will return the response
 protocol buffer message containing all the status data from the conode.
-\break
-
+\newline \newline
 To deal with the Promise object returned the program will use another feature of ECMAScript 6
 called a Generator. It's a new kind of function. It can be paused in the middle and
 resumed later. Naturally other parts of the code are running during the pause.
@@ -271,21 +267,23 @@ until the next encounter of the keyword (if there is any left)).
 \newline
 Returning to the website's code, a generator function is used with the function returning a Promise object
 containing the response protocol buffer message.
-\bigbreak
+\clearpage
 
 \begin{lstlisting}[caption={Extract from the project's code}, captionpos=b]
   function* generator() {
       // some code
-      var message = yield websocket_status(7003);
+      var message = yield websocketStatus("localhost:7003");
       listNodes.push(nodeCreation(message));
       // some code
   }
 \end{lstlisting}
 
-The function \say{websocket\_status()} is the one returning the Promise object. The generator function
-pauses when reaching \say{websocket\_status()}. \say{The main strength of generators is that they provide a single-threaded, synchronous-looking code style, while allowing you to hide the asynchronicity away as an implementation detail.}~\cite{runGenerator}.
+The function \say{websocketStatus()} is the one returning the Promise object. The generator function
+pauses when reaching \say{websocketStatus()}. \say{The main strength of generators is that they provide a single-threaded, synchronous-looking code style, while allowing you to hide the asynchronicity away as an implementation detail.}~\cite{runGenerator}.
 The idea is to \say{yield} out promises and let them restart the generator function when
-they are fulfilled. To do so we need to create a new function that will control the generator function's iterator.
+they are fulfilled.
+\newline
+To do so we need to create a new function that will control the generator function's iterator.
 \bigbreak
 
 \begin{lstlisting}[caption={Extract from the project's code~\cite{runGenerator}}, captionpos=b]
@@ -308,34 +306,33 @@ If not, which implies \say{ret.done} is equal to false, the function will iterat
 
 Now all the elements needed, to bring a solution for the asynchronous problem, have
 been presented. It only remains to do it for each conode (here in port 7003, 7005, 7009, 7011, 7013).
-\bigbreak
+\clearpage
 
 \begin{lstlisting}[caption={Extract from the project's code reaching some conodes}, captionpos=b]
 runGenerator(function* generator() {
-  const listAddresses = ["localhost:7003", "localhost:7005",
-      "localhost:7007", "localhost:7009", "localhost:7011",
+  const listAddresses = ["localhost:7003",
+      "localhost:7005", "localhost:7007",
+      "localhost:7009", "localhost:7011",
       "localhost:7013"];
 
   window.listNodes = [];
   for (let address of listAddresses) {
-        let message = yield websocket_status(address);
+        let message = yield websocketStatus(address);
         window.listNodes.push(nodeCreation(message));
   }
   // some code
 });
 \end{lstlisting}
 
-As said before the \say{websocket\_status()} function returns a Promis object.
+As said before the \say{websocketStatus()} function returns a Promis object.
 Thus the generator function \say{generator()} will halt (\say{yield}) before each
-\say{websocket\_status()} call.
+\say{websocketStatus()} call.
 \newline
 The generator function is given in parameter to the \say{runGenerator()} function.
 \newline
 The Promise APIs, the generator function and the util function \say{runGenerator()} allow
 to hide the asynchronous part of the code. It is more readable and modular.
 \bigbreak
-
-% TODO Google Chrome with async
 
 \subsection{Collective Signature and Verification}
 The following problem to tackle is the implementation of the possibility to send a
@@ -413,9 +410,7 @@ For safety reason, the calculation of the aggregate-key shall be done in the pro
 The risk is to have a server, which could make up a pair of public and private keys and
 then sends the make up public-key to the website as the aggregate-key. The security of
 all the servers would be questioning.
-% TODO ici suite à écrire!
-\smallbreak
-
+\newline \newline
 Initially a list of each conode's public-key needs to be created. The status part
 of the website looks after collecting servers' informations every 3 seconds. A variable,
 which contains all the informations of the conodes, is added to the \say{window} object.
@@ -425,7 +420,7 @@ of the conodes. Having that the calculation of the aggregate-key can begin.
 The program utilizes another NaCl library: \say{TweetNaCl.js}~\cite{tweetNacl} to
 pack, negatively unpack and addition the points. The function \say{pack()} transforms a point x, y, z, t in Ed25519
 into a JavaScript Uin8Array object. On the other hand the function \say{unpackneg()}
-transforms a a JavaScript Uint8Array object into point x, y, z, t and multiply
+transforms a JavaScript Uint8Array object into point x, y, z, t and multiplies
 the x-axis by -1. For the reason that it is preferable for operations in the TweetNaCl.js library.
 \bigbreak
 
@@ -458,8 +453,7 @@ of \say{0} of size 16. The variable \say{pubPos} is a zero-point.
 \newline
 Afterward the addition of the point is done using the \say{add()} function from
 the TweetNaCl.js library.
-\bigbreak
-
+\newline \newline
 Having calculated the aggregate-key, the website sends to one conode the list of servers
 and the hash of the file. On the server side, the server, receiving these informations,
 contacts the other conodes to collectively sign the hash of the file using the CoSi protocol.
@@ -473,7 +467,6 @@ Then it calculates the SHA-256 hash of the file using a function from js-nacl li
 The signature, the aggregate-key and the hash are translated in base64 for inclusion
 as a string in the JSON file.
 \newline \newline
-
 From there on the JSON file is created and proposed to be downloaded to the website's user.
 The JSON file contains the signature's file, the filename, the date, the aggregate-key and the file's hash.
 \bigbreak
@@ -493,17 +486,16 @@ The JSON file is downloadable using a Blob object~\cite{blob}.
 \bigbreak
 
 \subsubsection{Verification of the signature}
-Having the possibility to sign a file. It seems natural to propose the verification of the latter.
+Having the possibility to sign a file, it seems natural to propose the verification of the latter.
 \newline
-The user needs to submit a JSON file in the same form as the JSON file downloadable
+The user needs to submit a JSON file in the same format as the JSON file downloadable
 as previously presented. The website have the ability to perform two verifications.
 \newline
 First it verifies if the hash of the file is the same as the hash on the JSON file. Second if the signature
 is correct knowing the hash and the aggregate-key. The hash is the same as in the first verification
 and the aggregate-key is collected from the JSON file.
-\newline
-
-The UI section is completed following the same behavior as in the section: \say{Send a file for a collective signature}.
+\newline \newline
+The UI section is completed following the same procedure as in the section: \say{Send a file for a collective signature}.
 \newline
 
 \begin{figure}[ht!]
@@ -515,7 +507,6 @@ The UI section is completed following the same behavior as in the section: \say{
 The submit of the two files is done in the same way as in the \say{Send a file for a collective signature} part
 using Promise APIs, a generator function and \say{runGenerator()} function.
 \newline \newline
-
 The program translates the JSON file into an object due to the native function \say{JSON.parse()}.
 \newline
 It calculates the SHA-256 hash of the submitted file using the same method as in the
@@ -552,11 +543,11 @@ The final product looks like the image below.
 \end{figure}
 
 The status table is refreshed every 3 seconds.
-\newline
+\newline \newline
 The website is compatible with Google Chrome and Firefox. It works with Safari
 but the browser doesn't let download directly the Blob object on the user's computer. It
 opens the Blob object in the browser. The website was not tested on Opera, Microsoft Edge and other web browsers.
-\newline
+\newline \newline
 All the libraries are in the project folder. This may seem a bit cumbersome but
 it allows more independence and privacy.
 \newline
@@ -569,7 +560,7 @@ this problem.
 \newline
 At each instantiation of the js-nacl library, the heap is 32 megabytes in size. Therefore
 the user can submit a file of size at most \(\pm\)8.5 megabytes. Certainly this number is
-not correct for each computer and each browser but it gives a useful idea.
+not correct for each computer and each browser but it gives a useful hint.
 \newline
 
 \section{Future work}
@@ -628,43 +619,19 @@ The website is straightforward to use.
 The upper part of the web page is dedicated to display the number of conodes, the bandwidth used by all the conodes and
 a table containing some information for each conode.
 \newline \newline
-The bottom part of the web page is consacred to the Verification part of the website.
-\newline
+The bottom part of the web page is consacred to the Signature and Verification parts of the website.
+\newline \newline
 In clicking on \say{Signature.} a collapse opens and explain how to proceed to sign a certain file.
 It only needs to submit a file. After the website has signed it, a download button appears.
-It suffices to click on it to load the JSON file containing the signature on the computer.
-\newline
+It suffices to click on it to load the JSON file, containing the signature, on the computer.
+\newline \newline
 In clicking on \say{Verification.} a collapse opens and explain how to proceed to verify a signature.
 It only needs to submit the file and the JSON file containing the file's signature.
-The website displays a monad presenting the result of the verification between the file's hash and the hash enclosed in the JSON file
-and if the signature is a good one knowing the aggregate-key and the hash (contained in the JSON file).
+The JSON file must be in the same format as the JSON file downloadable in the Signature part.
+\newline
+The website displays a monad presenting the result of the verifications. The first if the file's hash and the hash enclosed in the JSON file are the same.
+The second if the signature is a correct one knowing the aggregate-key and the hash contained in the JSON file.
 \bigbreak
-
-\iffalse
-
-\section{Analysis}
-The first part of the semester project was to acquire knowledge in JavaScript and
-HTML and become familiar with the JQuery library. For delivering a skeleton of
-the website before the beginning of the semester.\\
-Next thing to settle was the communication between the website and a conode.
-The JavaScript Web APIs contain all the necessary to handle this problem.
-The object Websocket~\cite{websocketPage} offers all the tools to create a
-communication between a browser and a server.\\
-
-%talk about the implementation of the Status Part
-\section{Status part}
-%Mettre une subsection?????????????
-\subsection{Generator}
-
-\subsection{Implementation}
-
-\section{Signature part}
-
-
-\subsection{Verification}
-
-\fi
-
 
 \clearpage
 \begingroup
