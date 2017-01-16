@@ -302,7 +302,9 @@ To do so we need to create a new function that will control the generator functi
 This function takes a generator function as parameter. The \say{iterator} function
 variable is the generator function. The inner-function \say{iterate()} looks if
 a promise returns the value \say{message} from \say{iterator.next(message)}.
-If not, which implies \say{ret.done} is equal to false, the function will iterate again.
+If so, the function waits on it.
+\newline
+If the generator function is not completed, which implies \say{ret.done} is equal to false, the function will iterate again.
 
 Now all the elements needed, to bring a solution for the asynchronous problem, have
 been presented. It only remains to do it for each conode (here in port 7003, 7005, 7009, 7011, 7013).
@@ -402,7 +404,6 @@ using 4 protocol buffer messages.
   message SignatureResponse {
       required bytes hash = 1;
       required bytes signature = 2;
-      required bytes aggregate = 3;
   }
 \end{lstlisting}
 
@@ -630,7 +631,7 @@ It only needs to submit the file and the JSON file containing the file's signatu
 The JSON file must be in the same format as the JSON file downloadable in the Signature part.
 \newline
 The website displays a monad presenting the result of the verifications. The first if the file's hash and the hash enclosed in the JSON file are the same.
-The second if the signature is a correct one knowing the aggregate-key and the hash contained in the JSON file.
+The second if the signature is a correct one knowing the file's hash and the aggregate-key contained in the JSON file.
 \bigbreak
 
 \clearpage

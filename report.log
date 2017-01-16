@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  13 JAN 2017 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.26)  16 JAN 2017 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -395,45 +395,45 @@ File: illustrations/verification_signature.jpg Graphic file (type jpg)
 
 <use illustrations/verification_signature.jpg>
 Package pdftex.def Info: illustrations/verification_signature.jpg used on input
- line 366.
+ line 368.
 (pdftex.def)             Requested size: 355.65944pt x 105.85533pt.
  [11 <./illustrations/verification_signature.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 409--425
+Underfull \hbox (badness 10000) in paragraph at lines 410--426
 
  []
 
 
-Overfull \hbox (58.09863pt too wide) in paragraph at lines 428--429
+Overfull \hbox (58.09863pt too wide) in paragraph at lines 429--430
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (31.96747pt too wide) in paragraph at lines 430--431
+Overfull \hbox (31.96747pt too wide) in paragraph at lines 431--432
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 444--472
+Underfull \hbox (badness 10000) in paragraph at lines 445--473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--472
+Underfull \hbox (badness 10000) in paragraph at lines 445--473
 
  []
 
 
-Overfull \hbox (5.8363pt too wide) in paragraph at lines 482--483
+Overfull \hbox (5.8363pt too wide) in paragraph at lines 483--484
 [][][][][][][][][][][][][][] 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 489--500
+Underfull \hbox (badness 10000) in paragraph at lines 490--501
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 489--500
+Underfull \hbox (badness 10000) in paragraph at lines 490--501
 
  []
 
@@ -443,20 +443,20 @@ File: illustrations/verification_verification.jpg Graphic file (type jpg)
 
 <use illustrations/verification_verification.jpg>
 Package pdftex.def Info: illustrations/verification_verification.jpg used on in
-put line 503.
+put line 504.
 (pdftex.def)             Requested size: 355.65944pt x 81.96556pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--524
+Underfull \hbox (badness 10000) in paragraph at lines 508--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--524
+Underfull \hbox (badness 10000) in paragraph at lines 508--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--524
+Underfull \hbox (badness 10000) in paragraph at lines 508--525
 
  []
 
@@ -465,100 +465,100 @@ Underfull \hbox (badness 10000) in paragraph at lines 507--524
 File: illustrations/modal.jpg Graphic file (type jpg)
 
 <use illustrations/modal.jpg>
-Package pdftex.def Info: illustrations/modal.jpg used on input line 527.
+Package pdftex.def Info: illustrations/modal.jpg used on input line 528.
 (pdftex.def)             Requested size: 305.64113pt x 164.6146pt.
  [15 <./illustrations/modal.jpg>]
 <illustrations/interface.jpg, id=68, 1283.79625pt x 656.4525pt>
 File: illustrations/interface.jpg Graphic file (type jpg)
 
 <use illustrations/interface.jpg>
-Package pdftex.def Info: illustrations/interface.jpg used on input line 541.
+Package pdftex.def Info: illustrations/interface.jpg used on input line 542.
 (pdftex.def)             Requested size: 355.65944pt x 181.86221pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--554
+Underfull \hbox (badness 10000) in paragraph at lines 546--555
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--554
+Underfull \hbox (badness 10000) in paragraph at lines 546--555
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--554
+Underfull \hbox (badness 10000) in paragraph at lines 546--555
 
  []
 
 
-Overfull \hbox (4.30887pt too wide) in paragraph at lines 555--555
+Overfull \hbox (4.30887pt too wide) in paragraph at lines 556--556
 []\T1/cmr/bx/n/14.4 Theoritical and prac-ti-cal lim-i-ta-tions of the project 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--565
+Underfull \hbox (badness 10000) in paragraph at lines 557--566
 
  []
 
 [16
 
  <./illustrations/interface.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 567--578
+Underfull \hbox (badness 10000) in paragraph at lines 568--579
 
  []
 
 
-Overfull \hbox (14.06082pt too wide) in paragraph at lines 580--580
+Overfull \hbox (14.06082pt too wide) in paragraph at lines 581--581
 []\T1/cmr/bx/n/14.4 Theoritical and prac-ti-cal knowl-edge gained through
  []
 
 
-Overfull \hbox (0.55696pt too wide) in paragraph at lines 581--594
+Overfull \hbox (0.55696pt too wide) in paragraph at lines 582--595
 \T1/cmr/m/n/10.95 Before this semester project I had never par-ticed HTML, CSS 
 and JavaScript.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 581--594
+Underfull \hbox (badness 10000) in paragraph at lines 582--595
 
  []
 
 
-Overfull \hbox (23.74825pt too wide) in paragraph at lines 598--606
+Overfull \hbox (23.74825pt too wide) in paragraph at lines 599--607
 \T1/cmr/m/n/10.95 It is named: ``run_cothority.sh''. To run it it suf-fices to 
 en-ter: ``./run_cothority.sh''
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--606
+Underfull \hbox (badness 10000) in paragraph at lines 599--607
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 609--611
+Underfull \hbox (badness 10000) in paragraph at lines 610--612
 
  []
 
 File: illustrations/interface.jpg Graphic file (type jpg)
 <use illustrations/interface.jpg>
-Package pdftex.def Info: illustrations/interface.jpg used on input line 614.
+Package pdftex.def Info: illustrations/interface.jpg used on input line 615.
 (pdftex.def)             Requested size: 355.65944pt x 181.86221pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+Underfull \hbox (badness 10000) in paragraph at lines 618--619
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 619--634
+Underfull \hbox (badness 10000) in paragraph at lines 620--635
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 619--634
+Underfull \hbox (badness 10000) in paragraph at lines 620--635
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 619--634
+Underfull \hbox (badness 10000) in paragraph at lines 620--635
 
  []
 
@@ -620,7 +620,7 @@ m1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1
 4.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfti1095.
 pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pf
 b>
-Output written on report.pdf (21 pages, 329172 bytes).
+Output written on report.pdf (21 pages, 329195 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream
